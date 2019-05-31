@@ -6,6 +6,6 @@
 
 ## Wiki
 
-https://github.com/izgzhen/seguard-resources/wiki/SeGuard-Resources
+https://github.com/izgzhen/seguard-resources/wiki
 
 (Edit as will)
