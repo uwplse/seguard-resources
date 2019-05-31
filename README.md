@@ -10,6 +10,9 @@
 
 ## Library references
 
-1. https://www.sable.mcgill.ca/soot/
-2. https://scikit-learn.org
-3. https://networkx.github.io
+1. Static analysis:
+    + https://www.sable.mcgill.ca/soot/
+2. Machine Learning:
+    + https://scikit-learn.org
+3. Graph analysis:
+    + https://networkx.github.io
