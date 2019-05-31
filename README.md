@@ -4,15 +4,8 @@
 
 [ONBOARDING.md](ONBOARDING.md)
 
-## Documentation
+## Wiki
 
-1. SeGuard Analyzer: https://izgzhen.github.io/seguard-www/
+https://github.com/izgzhen/seguard-resources/wiki/SeGuard-Resources
 
-## Library references
-
-1. Static analysis:
-    + https://www.sable.mcgill.ca/soot/
-2. Machine Learning:
-    + https://scikit-learn.org
-3. Graph analysis:
-    + https://networkx.github.io
+(Edit as will)
