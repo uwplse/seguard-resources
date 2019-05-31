@@ -21,6 +21,7 @@ We are trying to maintain a library to needed knowledge and references in this r
 
 ## Collaboration
 
+* Real-time discussion: Ask me (zhen) to join our slack channel
 * **Your contribution will always be useful to others and appreciated**. Whatever it is fixing a typo, adding a utility class, or improving the document like this one, feel free to open a pull request.
 
 ## Troubleshooting
