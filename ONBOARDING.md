@@ -8,7 +8,7 @@ Depending on your interest, there are two tracks for you:
 Track I: **Analyzer framework**
 
 1. Get access to [seguard-framework repo](https://github.com/izgzhen/seguard-framework). Follow the instructions in https://izgzhen.github.io/seguard-www/quickstart.html.
-You goal is to successful generate the graph visualization.
+Your goal is to successful generate the graph visualization.
 
 Track II: **Machine learning**
 
