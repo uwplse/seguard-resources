@@ -1,4 +1,4 @@
-Welcome to our project!
+**Welcome to our project!**
 
 For a new member, we recommend you to get started with our project following the steps below
 so as to **start contributing and learning right away**.
@@ -14,6 +14,10 @@ Your goal is to successful generate the graph visualization.
 Track II: **Machine learning**
 
 1. TODO
+
+## Learning
+
+We are trying to maintain a library to needed knowledge and references in this repo: https://github.com/izgzhen/seguard-resources. They might not be complete, so ask by [creating an issue here](https://github.com/izgzhen/seguard-resources/issues) would be helpful!
 
 ## Collaboration
 
