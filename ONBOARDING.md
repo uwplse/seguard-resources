@@ -14,6 +14,10 @@ Track II: **Machine learning**
 
 1. TODO
 
+## Collaboration
+
+* It is important that your contribution will always be useful and appreciated. Whatever it is fixing a typo, adding a utility class, or improving the document like this one, feel free to open a pull request.
+
 ## Troubleshooting
 
 https://izgzhen.github.io/seguard-www/troubleshooting.html lists problem
