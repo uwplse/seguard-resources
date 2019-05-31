@@ -16,7 +16,7 @@ Track II: **Machine learning**
 
 ## Collaboration
 
-* It is important that your contribution will always be useful and appreciated. Whatever it is fixing a typo, adding a utility class, or improving the document like this one, feel free to open a pull request.
+* **Your contribution will always be useful to others and appreciated**. Whatever it is fixing a typo, adding a utility class, or improving the document like this one, feel free to open a pull request.
 
 ## Troubleshooting
 
