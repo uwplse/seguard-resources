@@ -3,6 +3,23 @@
 For a new member, we recommend you to get started with our project following the steps below
 so as to **start contributing and learning right away**.
 
+**Pre-requisites**: To effectively collaborate with us, or anyone doing serious
+engineering, you need to learn to use shell interface and git.
+
+- Shell:
+    + Our preferred working environment is macOS/Ubuntu, which should save you
+      a lot of time and headache in the long run.
+      But you can try to use other Linux or Windows.
+    + If you are using Windows natively, you are recommended to use
+      [Git Bash](https://gitforwindows.org/), which is installed along with Git
+      for Windows.
+    + Otherwise, I assume you have native access to bash or bash like shell.
+      [CSE390 Bash Reference](https://courses.cs.washington.edu/courses/cse391/17sp/bash.html)
+    + **Test yourself**: What does `echo $(date) > date.txt` mean?
+- Git:
+    + [Git Handbook by GitHub](https://guides.github.com/introduction/git-handbook/)
+    + **Test yourself**: What is `git rebase` and why is it useful?
+
 Depending on your interest, there are two tracks for you:
 
 Track I: **Analyzer framework**
