@@ -30,11 +30,18 @@ Your goal is to successful generate the graph visualization.
 
 Track II: **Machine learning**
 
-1. TODO
+1. Start with the Python notebook `classifier.ipynb` that loads in `DX`
+   (graph features vector), `DY` (multi-class labels), and `DZ` (binary-class
+   labels). Play around it and try to use Random Forest or whatever model
+   you like to predict the result using 10-fold cross-validation method.
+   Note down the precision.
 
 ## Learning
 
-We are trying to maintain a library to needed knowledge and references in this repo: https://github.com/izgzhen/seguard-resources. They might not be complete, so ask by [creating an issue here](https://github.com/izgzhen/seguard-resources/issues) would be helpful!
+We are trying to maintain a library to needed knowledge and references
+in this repo: https://github.com/izgzhen/seguard-resources.
+They might not be complete, so ask by
+[creating an issue here](https://github.com/izgzhen/seguard-resources/issues) would be helpful!
 
 ## Collaboration
 
