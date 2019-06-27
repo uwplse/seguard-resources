@@ -40,9 +40,12 @@ Track II: **Machine learning**
    In each sub-folder, there are a lot of `*.dot` files. Each dot file is a
    graphviz format of abstract graph that represents some program behavior.
    The naive way to transform a graph into feature vector is one-hot encoding
-   of both edges and nodes. However, there might be better way to do it.
+   of names of edges and nodes. However, there might be a better way to do it.
    Can you first try to implement the naive approach, and then come up with
-   a better way to do it? Can you compare these different featurization methods
+   a better way to do it? (e.g. encoding connectivity, or use a feature learning
+   tool like node2vec, or use graph neural networks! Search "Graph Embedding" on
+   Google for related information. Welcome to discuss with me)
+   Can you compare these different featurization methods
    by using the label as classification groundtruth and calculate recall etc.
    metrics?
 
