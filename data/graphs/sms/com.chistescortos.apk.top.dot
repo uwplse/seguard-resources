@@ -1,0 +1,37 @@
+strict digraph "" {
+	graph ["graph"="{}"];
+	"<android.content.IntentFilter: void setPriority(int)>"	 [domain=library,
+		type=SENSITIVE_METHOD];
+	"<android.net.Uri: android.net.Uri parse(java.lang.String)>"	 [domain=library,
+		type=SENSITIVE_METHOD];
+	ContentResolver	 [domain=library,
+		type=merged];
+	"<android.net.Uri: android.net.Uri parse(java.lang.String)>" -> ContentResolver	 [deps=DOMINATE,
+		type=DEP];
+	smsops	 [domain=library,
+		type=SENSITIVE_METHOD];
+	"content:##sms"	 [domain=library,
+		type=CONST_STRING];
+	"content:##sms" -> "<android.net.Uri: android.net.Uri parse(java.lang.String)>"	 [deps=DATAFLOW,
+		type=DEP];
+	"content:##sms" -> ContentResolver	 [deps=DATAFLOW,
+		type=DEP];
+	network_info	 [domain=library,
+		type=merged];
+	"SMS#RECEIVED"	 [domain=library,
+		type=CONST_STRING];
+	"SMS#RECEIVED" -> "<android.content.IntentFilter: void setPriority(int)>"	 [deps=DATAFLOW,
+		type=DEP];
+	intent	 [domain=library,
+		type=merged];
+	"<android.app.Activity: java.lang.Object getSystemService(java.lang.String)>"	 [domain=library,
+		type=SENSITIVE_METHOD];
+	background	 [domain=library,
+		type=entrypoint];
+	background -> "<android.net.Uri: android.net.Uri parse(java.lang.String)>"	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL",
+		type=DEP];
+	background -> smsops	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL",
+		type=DEP];
+	background -> ContentResolver	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-DOMINATE",
+		type=DEP];
+}

@@ -1,0 +1,37 @@
+strict digraph  {
+	graph ["graph"="{}"];
+	"<java.lang.Thread: void run()>"	 [domain=library,
+		type=SENSITIVE_METHOD];
+	write_file	 [domain=library,
+		type=merged];
+	"addFlags/setFlags/setContentView"	 [domain=library,
+		type=merged];
+	phone_id_info	 [domain=library,
+		type=merged];
+	BIG_INT	 [domain=library,
+		type=CONST_INT];
+	BIG_INT -> "addFlags/setFlags/setContentView"	 [deps=DATAFLOW,
+		type=DEP];
+	BIG_INT -> write_file	 [deps=DATAFLOW,
+		type=DEP];
+	"user activity"	 [domain=library,
+		type=entrypoint];
+	"user activity" -> "<java.lang.Thread: void run()>"	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL-CALL-CALL-CALL-CALL-CALL-CALL-CALL",
+		type=DEP];
+	"user activity" -> write_file	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL-CALL-CALL-CALL",
+		type=DEP];
+	background	 [domain=library,
+		type=entrypoint];
+	background -> write_file	 [deps="DATAFLOW-DATAFLOW-DATAFLOW-CALL-CALL-CALL-DATAFLOW-CALL-CALL-CALL",
+		type=DEP];
+	background -> "addFlags/setFlags/setContentView"	 [deps=DOMINATE,
+		type=DEP];
+	background -> phone_id_info	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL",
+		type=DEP];
+	"Thread run"	 [domain=library,
+		type=entrypoint];
+	"Thread run" -> "<java.lang.Thread: void run()>"	 [deps=FROM_SENSITIVE_PARENT_TO_SENSITIVE_API,
+		type=DEP];
+	"Thread run" -> write_file	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL-CALL-CALL",
+		type=DEP];
+}

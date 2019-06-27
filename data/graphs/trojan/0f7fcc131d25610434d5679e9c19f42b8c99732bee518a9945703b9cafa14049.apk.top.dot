@@ -1,0 +1,35 @@
+strict digraph  {
+	graph ["graph"="{}"];
+	"chmod 7"	 [domain=library,
+		type=CONST_STRING];
+	"java.lang.Runtime.exec"	 [domain=library,
+		type=merged];
+	"chmod 7" -> "java.lang.Runtime.exec"	 [deps=DATAFLOW,
+		type=DEP];
+	list_files	 [domain=library,
+		type=merged];
+	su	 [domain=library,
+		type=CONST_STRING];
+	su -> "java.lang.Runtime.exec"	 [deps=DATAFLOW,
+		type=DEP];
+	BIG_INT	 [domain=library,
+		type=CONST_INT];
+	write_file	 [domain=library,
+		type=merged];
+	BIG_INT -> write_file	 [deps=DATAFLOW,
+		type=DEP];
+	delete_files	 [domain=library,
+		type=merged];
+	delete_files -> list_files	 [deps="DATAFLOW-CALL",
+		type=DEP];
+	background	 [domain=library,
+		type=entrypoint];
+	background -> "java.lang.Runtime.exec"	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL-CALL",
+		type=DEP];
+	background -> list_files	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL-CALL-CALL",
+		type=DEP];
+	background -> delete_files	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL-CALL",
+		type=DEP];
+	background -> write_file	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL-CALL",
+		type=DEP];
+}

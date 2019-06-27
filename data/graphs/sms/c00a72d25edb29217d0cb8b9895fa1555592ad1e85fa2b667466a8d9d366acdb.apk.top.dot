@@ -1,0 +1,15 @@
+strict digraph  {
+	graph ["graph"="{}"];
+	"<java.lang.System: void loadLibrary(java.lang.String)>"	 [domain=library,
+		type=SENSITIVE_METHOD];
+	write_file	 [domain=library,
+		type=merged];
+	BIG_INT	 [domain=library,
+		type=CONST_INT];
+	BIG_INT -> write_file	 [deps=DATAFLOW,
+		type=DEP];
+	background	 [domain=library,
+		type=entrypoint];
+	background -> "<java.lang.System: void loadLibrary(java.lang.String)>"	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL",
+		type=DEP];
+}

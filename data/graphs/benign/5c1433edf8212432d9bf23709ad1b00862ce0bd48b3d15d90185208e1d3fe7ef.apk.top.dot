@@ -1,0 +1,27 @@
+strict digraph  {
+	graph ["graph"="{}"];
+	"<android.app.Dialog: void cancel()>"	 [domain=library,
+		type=SENSITIVE_METHOD];
+	smsops	 [domain=library,
+		type=SENSITIVE_METHOD];
+	"addFlags/setFlags/setContentView"	 [domain=library,
+		type=merged];
+	BIG_INT	 [domain=library,
+		type=CONST_INT];
+	BIG_INT -> "addFlags/setFlags/setContentView"	 [deps=DATAFLOW,
+		type=DEP];
+	"user activity"	 [domain=library,
+		type=entrypoint];
+	"user activity" -> "<android.app.Dialog: void cancel()>"	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL",
+		type=DEP];
+	"user activity" -> "addFlags/setFlags/setContentView"	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL",
+		type=DEP];
+	"user activity" -> smsops	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL",
+		type=DEP];
+	background	 [domain=library,
+		type=entrypoint];
+	background -> "addFlags/setFlags/setContentView"	 [deps=DOMINATE,
+		type=DEP];
+	background -> "<android.app.Dialog: void cancel()>"	 [deps=FROM_SENSITIVE_PARENT_TO_SENSITIVE_API,
+		type=DEP];
+}

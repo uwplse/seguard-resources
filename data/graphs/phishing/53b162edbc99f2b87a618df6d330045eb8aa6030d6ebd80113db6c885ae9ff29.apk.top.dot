@@ -1,0 +1,5 @@
+strict digraph  {
+	graph ["graph"="{}"];
+	"user activity"	 [domain=library,
+		type=entrypoint];
+}

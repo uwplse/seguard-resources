@@ -1,0 +1,17 @@
+strict digraph  {
+	graph ["graph"="{}"];
+	smsops	 [domain=library,
+		type=SENSITIVE_METHOD];
+	"Internet/HTTP"	 [domain=library,
+		type=merged];
+	background	 [domain=library,
+		type=entrypoint];
+	background -> smsops	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL",
+		type=DEP];
+	background -> "Internet/HTTP"	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL",
+		type=DEP];
+	"user activity"	 [domain=library,
+		type=entrypoint];
+	"user activity" -> "Internet/HTTP"	 [deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL-CALL-CALL",
+		type=DEP];
+}

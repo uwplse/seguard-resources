@@ -1,0 +1,5 @@
+strict digraph  {
+	graph ["graph"="{}"];
+	background	 [domain=library,
+		type=entrypoint];
+}
