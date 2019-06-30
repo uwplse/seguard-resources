@@ -59,7 +59,8 @@ They might not be complete, so ask by
 
 ## Collaboration
 
-* Real-time discussion: Ask me (zhen) to join our slack channel
+* Real-time discussion: If you have an email in `uw.edu,washington.edu,cs.uw.edu,cs.washington.edu`,
+  just sign up at https://seguard.slack.com/signup. If not, ask me (zhen) to invite you.
 * **Your contribution will always be useful to others and appreciated**.
 Whatever it is fixing a typo, adding a utility class, or improving the document like this one,
 feel free to open a pull request.
