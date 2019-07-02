@@ -50,6 +50,12 @@ Track II: **Machine learning**
    by using the label as classification groundtruth and calculate recall etc.
    metrics?
 
+**Deliverable**: Please fork this repo and update the `classifier.ipynb`
+accordingly with the following code and results:
+(1) random forest classification recall and precision based on vector data with KFold method (K=10)
+(2) featurize the graphs in second dataset and use it for the above classification instead of the
+    vectors I showed in dataset 1
+
 ## Learning
 
 We are trying to maintain a library to needed knowledge and references
