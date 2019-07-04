@@ -49,6 +49,7 @@ Track II: **Machine learning**
    Can you compare these different featurization methods
    by using the label as classification groundtruth and calculate recall etc.
    metrics?
+   (related API: https://github.com/izgzhen/seguard-framework/blob/master/tools/python/seguard/graph.py)
 
 **Deliverable**: Please fork this repo and update the `classifier.ipynb`
 accordingly with the following code and results:
