@@ -1,0 +1,8 @@
+BIG_INT -> phone_id_info
+BIG_INT -> addFlags/setFlags/setContentView
+BIG_INT -> write_file
+background -> phone_id_info
+background -> addFlags/setFlags/setContentView
+background -> write_file
+user activity -> write_file
+Thread run -> write_file

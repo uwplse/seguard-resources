@@ -1,0 +1,21 @@
+sharedprefops -> Internet/HTTP
+phone_id_info -> Internet/HTTP
+BIG_INT -> sharedprefops
+BIG_INT -> Internet/HTTP
+BIG_INT -> addFlags/setFlags/setContentView
+intent -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+user activity -> sharedprefops
+user activity -> Internet/HTTP
+user activity -> addFlags/setFlags/setContentView
+background -> smsops
+background -> sharedprefops
+background -> Internet/HTTP
+background -> <android.app.Activity: java.lang.Object getSystemService(java.lang.String)>
+background -> addFlags/setFlags/setContentView
+Thread run -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+Thread run -> smsops
+Thread run -> sharedprefops
+Thread run -> Internet/HTTP
+Thread run -> <android.app.Activity: java.lang.Object getSystemService(java.lang.String)>
+Thread run -> phone_id_info
+Thread run -> intent

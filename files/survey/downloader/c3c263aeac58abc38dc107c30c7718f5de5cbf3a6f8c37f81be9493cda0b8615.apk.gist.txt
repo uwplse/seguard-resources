@@ -1,0 +1,16 @@
+intent -> addFlags/setFlags/setContentView
+DEVICE#ADMIN -> intent
+DEVICE#ADMIN -> addFlags/setFlags/setContentView
+BIG_INT -> Internet/HTTP
+BIG_INT -> addFlags/setFlags/setContentView
+BIG_INT -> <android.content.Context: android.content.ComponentName startService(android.content.Intent)>
+phone_id_info -> <android.app.Activity: java.lang.Object getSystemService(java.lang.String)>
+background -> Internet/HTTP
+background -> <android.app.Activity: java.lang.Object getSystemService(java.lang.String)>
+background -> intent
+background -> addFlags/setFlags/setContentView
+background -> java.lang.Runtime.exec
+background -> phone_id_info
+background -> delete_files
+background -> <android.app.Activity: void startActivity(android.content.Intent)>
+background -> write_file

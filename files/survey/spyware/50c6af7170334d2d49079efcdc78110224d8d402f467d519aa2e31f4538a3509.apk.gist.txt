@@ -1,0 +1,85 @@
+location_api -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+location_api -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+location_api -> <android.content.Context: android.content.ComponentName startService(android.content.Intent)>
+location_api -> <java.net.Socket: void connect(java.net.SocketAddress)>
+location_api -> addFlags/setFlags/setContentView
+location_api -> write_file
+location_api -> intent
+location_api -> Internet/HTTP
+location_api -> sharedprefops
+location_api -> network_info
+<android.net.Uri: android.net.Uri parse(java.lang.String)> -> addFlags/setFlags/setContentView
+intent -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+intent -> <android.content.Context: android.content.ComponentName startService(android.content.Intent)>
+sharedprefops -> location_api
+sharedprefops -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+sharedprefops -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+sharedprefops -> <android.content.Context: android.content.ComponentName startService(android.content.Intent)>
+sharedprefops -> <java.net.Socket: void connect(java.net.SocketAddress)>
+sharedprefops -> addFlags/setFlags/setContentView
+sharedprefops -> write_file
+sharedprefops -> intent
+sharedprefops -> Internet/HTTP
+sharedprefops -> network_info
+BIG_INT -> location_api
+BIG_INT -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+BIG_INT -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+BIG_INT -> <android.content.Context: android.content.ComponentName startService(android.content.Intent)>
+BIG_INT -> <java.net.Socket: void connect(java.net.SocketAddress)>
+BIG_INT -> addFlags/setFlags/setContentView
+BIG_INT -> write_file
+BIG_INT -> intent
+BIG_INT -> Internet/HTTP
+BIG_INT -> sharedprefops
+BIG_INT -> network_info
+BIG_INT -> phone_id_info
+phone_id_info -> location_api
+phone_id_info -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+phone_id_info -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+phone_id_info -> <android.content.Context: android.content.ComponentName startService(android.content.Intent)>
+phone_id_info -> <java.net.Socket: void connect(java.net.SocketAddress)>
+phone_id_info -> addFlags/setFlags/setContentView
+phone_id_info -> write_file
+phone_id_info -> intent
+phone_id_info -> Internet/HTTP
+phone_id_info -> sharedprefops
+phone_id_info -> network_info
+su -> write_file
+background -> <android.app.Activity: void startActivity(android.content.Intent)>
+background -> location_api
+background -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+background -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+background -> <android.content.Context: android.content.ComponentName startService(android.content.Intent)>
+background -> <java.net.Socket: void connect(java.net.SocketAddress)>
+background -> addFlags/setFlags/setContentView
+background -> write_file
+background -> intent
+background -> Internet/HTTP
+background -> sharedprefops
+background -> network_info
+background -> phone_id_info
+background -> <android.app.Dialog: void dismiss()>
+user activity -> <android.app.Activity: void startActivity(android.content.Intent)>
+user activity -> location_api
+user activity -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+user activity -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+user activity -> <android.content.Context: android.content.ComponentName startService(android.content.Intent)>
+user activity -> <java.net.Socket: void connect(java.net.SocketAddress)>
+user activity -> addFlags/setFlags/setContentView
+user activity -> write_file
+user activity -> intent
+user activity -> Internet/HTTP
+user activity -> sharedprefops
+user activity -> network_info
+user activity -> <android.app.Dialog: void dismiss()>
+Thread run -> location_api
+Thread run -> <android.content.Context: void sendBroadcast(android.content.Intent)>
+Thread run -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+Thread run -> <android.content.Context: android.content.ComponentName startService(android.content.Intent)>
+Thread run -> <java.net.Socket: void connect(java.net.SocketAddress)>
+Thread run -> addFlags/setFlags/setContentView
+Thread run -> write_file
+Thread run -> intent
+Thread run -> Internet/HTTP
+Thread run -> sharedprefops
+Thread run -> network_info

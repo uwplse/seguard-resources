@@ -1,0 +1,267 @@
+<?xml version="1.0" ?>
+<manifest android:versionCode="2" android:versionName="1.1" package="com.waseemsakka.calltoast" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<uses-sdk android:minSdkVersion="8">
+</uses-sdk>
+	
+
+	<application android:icon="@7F020001" android:label="@7F050001">
+		
+
+		<service android:name=".CallService">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="com.waseemsakka.calltoast.service.CALL_SERVICE">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</service>
+		
+
+		<activity android:label="@7F050001" android:name=".CallToast_Main">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+			<intent-filter>
+				
+
+				<action android:name="com.waseemsakka.calltoaster.NOTIFICATION">
+</action>
+				
+
+				<category android:name="android.intent.category.DEFAULT">
+</category>
+				
+
+				<data android:scheme="notif">
+</data>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<receiver android:name=".CustomBroadcastReceiver">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.PHONE_STATE">
+</action>
+				
+
+			</intent-filter>
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.BOOT_COMPLETED">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<activity android:name=".PrefsActivity">
+</activity>
+		
+
+		<activity android:name=".ShowSettingsActivity">
+</activity>
+		
+
+		<activity android:name=".UserSettings">
+</activity>
+		
+
+		<activity android:label="Settings" android:name="com.xtify.android.sdk.SettingsActivity">
+</activity>
+		
+
+		<activity android:label="Notification Details" android:name="com.xtify.android.sdk.NotificationDetailsActivity" android:screenOrientation="1">
+</activity>
+		
+
+		<activity android:label="Notification Settings" android:name="com.xtify.android.sdk.NotificationSettingsActivity">
+</activity>
+		
+
+		<service android:label="Notifications Service" android:name="com.xtify.android.sdk.MainService">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="com.xtify.android.sdk.IMainService">
+</action>
+				
+
+				<category android:name="com.xtify.android.sdk.IMainService">
+</category>
+				
+
+				<category android:name="com.xtify.android.sdk.IMainService.V1050">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</service>
+		
+
+		<receiver android:name="com.xtify.android.sdk.MainReceiver">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="com.xtify.android.sdk.SHOW_NOTIFICATION">
+</action>
+				
+
+				<action android:name="com.xtify.android.sdk.NOTIFICATION_CLICKED">
+</action>
+				
+
+				<action android:name="com.xtify.android.sdk.NOTIFICATION_CLEARED">
+</action>
+				
+
+				<data android:host="notification.xtify.com" android:pathPrefix="/dd347236-e567-4bdd-95d8-66d073dac79d" android:scheme="notif">
+</data>
+				
+
+			</intent-filter>
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.BOOT_COMPLETED">
+</action>
+				
+
+				<action android:name="android.intent.action.ACTION_POWER_CONNECTED">
+</action>
+				
+
+				<action android:name="com.xtify.android.sdk.SEND_SETTINGS">
+</action>
+				
+
+			</intent-filter>
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.PACKAGE_ADDED">
+</action>
+				
+
+				<action android:name="android.intent.action.PACKAGE_REMOVED">
+</action>
+				
+
+				<data android:scheme="package">
+</data>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<meta-data android:name="XTIFY_SDK_API_KEY" android:value="dd347236-e567-4bdd-95d8-66d073dac79d">
+</meta-data>
+		
+
+	</application>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_CONTACTS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_CONTACTS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.VIBRATE">
+</uses-permission>
+	
+
+</manifest>

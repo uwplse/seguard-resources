@@ -1,0 +1,21 @@
+<android.net.Uri: android.net.Uri parse(java.lang.String)> -> ContentResolver
+content:##sms -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+content:##sms -> ContentResolver
+BIG_INT -> addFlags/setFlags/setContentView
+BIG_INT -> <android.app.Notification$Builder: android.app.Notification$Builder setPriority(int)>
+background -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+background -> ContentResolver
+background -> addFlags/setFlags/setContentView
+background -> <android.app.Dialog: void dismiss()>
+background -> Internet/HTTP
+background -> <android.app.Notification$Builder: android.app.Notification$Builder setPriority(int)>
+background -> phone_id_info
+background -> sharedprefops
+user activity -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+user activity -> ContentResolver
+user activity -> addFlags/setFlags/setContentView
+user activity -> <android.app.Dialog: void dismiss()>
+user activity -> sharedprefops
+Thread run -> <android.net.Uri: android.net.Uri parse(java.lang.String)>
+Thread run -> ContentResolver
+Thread run -> sharedprefops
