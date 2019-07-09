@@ -1,8 +1,0 @@
-delete_files -> list_files
-chmod 7 -> java.lang.Runtime.exec
-BIG_INT -> write_file
-su -> java.lang.Runtime.exec
-background -> delete_files
-background -> list_files
-background -> java.lang.Runtime.exec
-background -> write_file
