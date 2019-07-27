@@ -1,0 +1,5 @@
+      permission             api component lifecycle   system                      action       ui
+18833   INTERNET  openConnection  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+39589   INTERNET  openConnection  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+64151   INTERNET  openConnection  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+81101   INTERNET  openConnection  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown

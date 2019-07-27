@@ -1,0 +1,6 @@
+             permission                api component lifecycle   system                      action       ui
+8689       GET_ACCOUNTS  getAccountsByType  activity  onCreate  Unknown                     Unknown  Unknown
+8690  REFLECTION_METHOD             invoke  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+8691  REFLECTION_METHOD             invoke   service   onStart  Unknown                     Unknown  Unknown
+8692  REFLECTION_METHOD             invoke  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+8693      CLASS_LOADING         getRuntime  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown

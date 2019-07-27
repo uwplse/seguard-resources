@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<manifest android:versionCode="2" android:versionName="1.0.5" package="com.DongNguyen.JoeDangerInfinity" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<uses-sdk android:minSdkVersion="7" android:targetSdkVersion="17">
+</uses-sdk>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.GET_TASKS">
+</uses-permission>
+	
+
+	<application android:allowBackup="true" android:icon="@7F020001" android:label="@7F040000">
+		
+
+		<activity android:label="@7F040000" android:name="com.DongNguyen.JoeDangerInfinity.MainActivity">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<activity android:configChanges="0x000000B0" android:name="com.startapp.android.eula.EULAActivity" android:theme="@android:0103000F">
+</activity>
+		
+
+		<activity android:name="com.startapp.android.publish.list3d.List3DActivity" android:taskAffinity="com.DongNguyen.JoeDangerInfinity.AppWall" android:theme="@android:01030005">
+</activity>
+		
+
+		<activity android:configChanges="0x000000A0" android:name="com.startapp.android.publish.AppWallActivity" android:taskAffinity="com.DongNguyen.JoeDangerInfinity.AppWall" android:theme="@android:0103000F">
+</activity>
+		
+
+	</application>
+	
+
+</manifest>

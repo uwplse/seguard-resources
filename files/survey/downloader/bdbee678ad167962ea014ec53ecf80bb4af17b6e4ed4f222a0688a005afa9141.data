@@ -1,0 +1,8 @@
+SuspiciousApiList_Landroid/app/Application.getSystemService
+SuspiciousApiList_Landroid/content/pm/PackageManager.getPackageInfo
+IntentFilterList_android.intent.action.MAIN
+ActivityList_com.aevgame.minecraft.MainActivity
+RequestedPermissionList_android.permission.WRITE_EXTERNAL_STORAGE
+RequestedPermissionList_android.permission.ACCESS_NETWORK_STATE
+RequestedPermissionList_android.permission.INTERNET
+RequestedPermissionList_android.permission.READ_PHONE_STATE

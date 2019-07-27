@@ -1,0 +1,6 @@
+      permission           api component  lifecycle   system   action       ui
+18428   INTERNET        <init>   Unknown    Unknown  Unknown  Unknown   <init>
+18429   INTERNET        <init>   Unknown    Unknown  Unknown  Unknown   <init>
+18430  WAKE_LOCK  stopPlayback  activity  onDestroy  Unknown  Unknown  Unknown
+18431  WAKE_LOCK  stopPlayback  activity    onPause  Unknown  Unknown  Unknown
+39184   INTERNET        <init>   Unknown    Unknown  Unknown  Unknown   <init>

@@ -1,0 +1,6 @@
+         permission         api component  lifecycle   system                                             action       ui
+8472  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown               com.android.vending.INSTALL_REFERRER  Unknown
+8473  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown                                            Unknown  Unknown
+8474  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown  com.android.vending.billing.PURCHASE_STATE_CHA...  Unknown
+8475  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown                                            Unknown  Unknown
+8476  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown                     com.secneo.proxy.action.CUSTOM  Unknown

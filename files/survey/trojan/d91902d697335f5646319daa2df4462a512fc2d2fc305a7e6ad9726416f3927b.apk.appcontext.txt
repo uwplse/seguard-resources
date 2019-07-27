@@ -1,0 +1,6 @@
+         permission         api component  lifecycle   system                                action       ui
+8272  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown  android.intent.action.BOOT_COMPLETED  Unknown
+8273  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown                               Unknown  Unknown
+8274  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown    android.intent.action.USER_PRESENT  Unknown
+8275  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown                               Unknown  Unknown
+8276  CLASS_LOADING  getRuntime  receiver  onReceive  Unknown    com.amazon.inapp.purchasing.NOTIFY  Unknown
