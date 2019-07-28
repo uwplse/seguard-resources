@@ -20,6 +20,11 @@ engineering, you need to learn to use shell interface and git.
     + [Git Handbook by GitHub](https://guides.github.com/introduction/git-handbook/)
     + **Test yourself**: What is `git rebase` and why is it useful?
 
+Now, read [the overview of this project](https://izgzhen.github.io/seguard-www/overview.html),
+ask me to send the newest seguard draft paper to you.
+Feel free to ask me if anything is missing or unclear to you :) It is more important to be clear and transparent
+than being opaque.
+
 Depending on your interest, there are two tracks for you:
 
 Track I: **Analyzer framework**
