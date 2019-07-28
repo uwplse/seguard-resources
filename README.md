@@ -40,6 +40,10 @@ https://github.com/izgzhen/seguard-resources/wiki
 
 - 2019-05-29: [Graph Representation in Malware Detection](https://github.com/izgzhen/seguard-resources/blob/master/posts/case-study-01.md)
 
+## Video Tutorials
+
+- [SeGuard error anlaysis](https://vimeo.com/350633606), [transcript](files/transcript/error-analysis-01.txt)
+
 ## Surveys
 
 https://www.surveymonkey.com/r/X5HHJBQ

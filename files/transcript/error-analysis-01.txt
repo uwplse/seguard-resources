@@ -1,0 +1,28 @@
+0:04  
+Here we introduce how to do error analysis inside seguard. So the first step is to use the seguard shortcut from our repo to open the APK can analyze it after analysis, you get
+
+0:24  
+dot graph, which is full dependency graph. And
+
+0:32  
+the next step it's used the explore-graph shortcut to open that full graph and distill it into a smaller graph.
+
+0:43  
+The first step is to distill to assign it to h or whatever and then you use h.render_pdf() to show it visualization. If you compare the visualization here with what are we having in our error analysis
+
+0:59  
+archive you can see that they are actually not the same, this could be frequent and it is caused by the inconsistency between the code that generates the the graph on the left and the code that we have now. So what to do is is we don't care and let's just look into this sample
+
+1:20  
+to see how this abstraction are generated. So it has three nodes and what do we care what are you really interested in is what are the concrete nodes or actual APIs that is transformed into this abstract nodes, using the print_original_paths you can get such information which is a path in the original APK.
+
+1:44  
+Now we use jdax de-compiler to see the actual de-compiled implementation of the APK and try to find the corresponding concrete operations inside of the inside the jadx, we open
+
+2:00  
+The corresponding class, find the method code onCreate, which is entry point method and
+
+2:11  
+and then we try to find the use the method, sensitive method called setContentView in it and it is not very sensitive here because its arguments are all symbols and it is only malicious when they are all big integers, which means that you are trying to cover the entire screen with your own stuff with So, the integer would it be hard coded like very large means that the number of pixels you want to cover
+
+Transcribed by https://otter.ai
