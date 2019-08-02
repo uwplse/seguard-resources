@@ -1,0 +1,8 @@
+digraph G {
+    "Indeed" [color="red"]
+    "Chime" -> "Basic"
+    "Boot" -> "Chime"
+    "Chime"  [color="blue"]
+    "Band" -> "Duration"
+    "Oz" -> "Band"
+}

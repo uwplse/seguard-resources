@@ -1,0 +1,8 @@
+digraph G {
+    "Boot" [color="red"]
+    "Boot" -> "Basic"
+    "Boot" -> "Cancel"
+    "Cancel"  [color="blue"]
+    "B" -> "Duration"
+    "Cancel" -> "Detect"
+}

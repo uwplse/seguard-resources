@@ -1,0 +1,8 @@
+digraph G {
+    "Horse" [color="red"]
+    "Race" -> "Basic"
+    "Hong Kong" -> "Cancel"
+    "Cancel"  [color="blue"]
+    "Reporter" -> "Race"
+    "Race" -> "Reporter"
+}
