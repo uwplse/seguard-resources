@@ -1,6 +1,0 @@
-                permission                   api component  lifecycle   system                                   action       ui
-8713      READ_PHONE_STATE           getDeviceId  receiver  onReceive  Unknown                                  Unknown  Unknown
-8714      READ_PHONE_STATE        getLine1Number  receiver  onReceive  Unknown                                  Unknown  Unknown
-8715  ACCESS_NETWORK_STATE  getActiveNetworkInfo  receiver  onReceive  Unknown                                  Unknown  Unknown
-8716      READ_PHONE_STATE           getDeviceId  activity   onCreate  Unknown               android.intent.action.MAIN  Unknown
-8717      READ_PHONE_STATE           getDeviceId  receiver  onReceive  Unknown  android.provider.Telephony.SMS_RECEIVED  Unknown
