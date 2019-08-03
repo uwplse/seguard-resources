@@ -1,0 +1,6 @@
+                permission                   api component lifecycle   system   action       ui
+8528  ACCESS_NETWORK_STATE  getActiveNetworkInfo   service   onStart  Unknown  Unknown  Unknown
+8529  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity  onCreate  Unknown  Unknown  Unknown
+8530  ACCESS_NETWORK_STATE  getActiveNetworkInfo   service   onStart  Unknown  Unknown  Unknown
+8531  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity  onCreate  Unknown  Unknown  Unknown
+8532     REFLECTION_METHOD                invoke   service   onStart  Unknown  Unknown  Unknown

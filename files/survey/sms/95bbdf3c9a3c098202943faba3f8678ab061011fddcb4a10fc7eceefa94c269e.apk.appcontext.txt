@@ -1,0 +1,6 @@
+             permission              api component lifecycle   system                      action       ui
+16357  READ_PHONE_STATE   getLine1Number  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+16358  READ_PHONE_STATE  getSubscriberId  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+16359  READ_PHONE_STATE      getDeviceId  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+37113  READ_PHONE_STATE   getLine1Number  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+37114  READ_PHONE_STATE  getSubscriberId  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown

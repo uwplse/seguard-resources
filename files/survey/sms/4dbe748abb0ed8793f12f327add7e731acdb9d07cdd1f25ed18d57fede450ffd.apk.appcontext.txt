@@ -1,0 +1,6 @@
+              permission     api component lifecycle   system   action        ui
+16341  REFLECTION_METHOD  invoke  activity   Unknown  Unknown  Unknown  <clinit>
+16342  REFLECTION_METHOD  invoke  activity   Unknown  Unknown  Unknown  <clinit>
+16343  REFLECTION_METHOD  invoke  activity   Unknown  Unknown  Unknown  <clinit>
+16344  REFLECTION_METHOD  invoke  activity   Unknown  Unknown  Unknown  <clinit>
+16345  REFLECTION_METHOD  invoke  activity   Unknown  Unknown  Unknown  <clinit>

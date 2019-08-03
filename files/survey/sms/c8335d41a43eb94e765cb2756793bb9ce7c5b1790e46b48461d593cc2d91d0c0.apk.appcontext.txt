@@ -1,0 +1,6 @@
+              permission             api component lifecycle   system   action                 ui
+16546  REFLECTION_METHOD          invoke   Unknown   Unknown  Unknown  Unknown  attachBaseContext
+16547      CLASS_LOADING          <init>   Unknown   Unknown  Unknown  Unknown  attachBaseContext
+16548           INTERNET  openConnection   Unknown   Unknown  Unknown  Unknown  attachBaseContext
+37302  REFLECTION_METHOD          invoke   Unknown   Unknown  Unknown  Unknown  attachBaseContext
+37303      CLASS_LOADING          <init>   Unknown   Unknown  Unknown  Unknown  attachBaseContext

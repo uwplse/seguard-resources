@@ -1,0 +1,6 @@
+             permission      api component  lifecycle   system                                action       ui
+13517         WAKE_LOCK  release   service  onDestroy  Unknown                               Unknown  Unknown
+13518  READ_PHONE_STATE   listen  receiver  onReceive  Unknown     android.intent.action.PHONE_STATE  Unknown
+13519  READ_PHONE_STATE   listen  receiver  onReceive  Unknown                               Unknown  Unknown
+13520  READ_PHONE_STATE   listen  activity   onCreate  Unknown            android.intent.action.MAIN  Unknown
+13521  READ_PHONE_STATE   listen  receiver  onReceive  Unknown  android.intent.action.BOOT_COMPLETED  Unknown

@@ -1,0 +1,6 @@
+                 permission                   api component  lifecycle   system                         action       ui
+11021  ACCESS_NETWORK_STATE  getActiveNetworkInfo  receiver  onReceive  Unknown  android.net.wifi.STATE_CHANGE  Unknown
+11022  ACCESS_NETWORK_STATE  getActiveNetworkInfo  receiver  onReceive  Unknown                        Unknown  Unknown
+11023              INTERNET                <init>   service    onStart  Unknown                        Unknown  Unknown
+11024     REFLECTION_METHOD                invoke  activity   onCreate  Unknown     android.intent.action.MAIN  Unknown
+11025     REFLECTION_METHOD                invoke  activity   onCreate  Unknown     android.intent.action.MAIN  Unknown

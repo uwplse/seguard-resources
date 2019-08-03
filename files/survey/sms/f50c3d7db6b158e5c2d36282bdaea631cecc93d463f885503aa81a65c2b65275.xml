@@ -1,0 +1,227 @@
+<?xml version="1.0" ?>
+<manifest android:versionCode="1" android:versionName="1.0" package="holisticagency.locker.timemachine" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="22">
+</uses-sdk>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.DISABLE_KEYGUARD">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.VIBRATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RESTART_PACKAGES">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SET_WALLPAPER">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_SETTINGS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WAKE_LOCK">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SEND_SMS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_SMS">
+</uses-permission>
+	
+
+	<meta-data android:name="android.support.VERSION" android:value="25.3.0">
+</meta-data>
+	
+
+	<application android:allowBackup="false" android:excludeFromRecents="true" android:icon="@7F030000" android:label="@7F07005D" android:name="com.nhr.sin.BaseApplication" android:supportsRtl="true" android:theme="@7F0900A7">
+		
+
+		<activity android:name="holisticagency.locker.timemachine.ui.main.MainActivity" android:screenOrientation="1">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<activity android:excludeFromRecents="true" android:launchMode="2" android:name="holisticagency.locker.timemachine.ui.locker.LockerActivity" android:screenOrientation="1">
+			
+
+			<intent-filter>
+				
+
+				<category android:name="android.intent.category.HOME">
+</category>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<activity android:name="holisticagency.locker.timemachine.ui.setting.SettingActivity" android:screenOrientation="1">
+</activity>
+		
+
+		<activity android:name="holisticagency.locker.timemachine.ui.style.StyleActivity" android:screenOrientation="1" android:windowSoftInputMode="0x00000022">
+</activity>
+		
+
+		<activity android:name="holisticagency.locker.timemachine.ui.save.SaveActivity" android:screenOrientation="1">
+</activity>
+		
+
+		<activity android:name="holisticagency.locker.timemachine.ui.wallpaper.WallpaperActivity" android:screenOrientation="1">
+</activity>
+		
+
+		<activity android:name="holisticagency.locker.timemachine.ui.detail.DetailActivity" android:screenOrientation="1">
+</activity>
+		
+
+		<service android:name="holisticagency.locker.timemachine.ui.locker.LockerService">
+</service>
+		
+
+		<receiver android:name="holisticagency.locker.timemachine.ui.locker.BootReceiver">
+			
+
+			<intent-filter android:priority="1000">
+				
+
+				<action android:name="android.intent.action.BOOT_COMPLETED">
+</action>
+				
+
+				<category android:name="android.intent.category.HOME">
+</category>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+				<category android:name="android.intent.category.DEFAULT">
+</category>
+				
+
+				<action android:name="android.intent.action.DATE_CHANGED">
+</action>
+				
+
+				<action android:name="RestartSerivcesForSystemEventReceiver">
+</action>
+				
+
+				<action android:name="android.intent.action.MEDIA_MOUNTED">
+</action>
+				
+
+				<action android:name="android.intent.action.MEDIA_UNMOUNTED">
+</action>
+				
+
+				<action android:name="android.intent.action.MEDIA_EJECT">
+</action>
+				
+
+				<data android:scheme="file">
+</data>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<service android:label="@7F07005D" android:name="holisticagency.locker.timemachine.ui.notification.NotificationService" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.service.notification.NotificationListenerService">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</service>
+		
+
+		<meta-data android:name="apktoolplus_jiagu_app" android:value="holisticagency.locker.timemachine.LockerApplication">
+</meta-data>
+		
+
+	</application>
+	
+
+</manifest>

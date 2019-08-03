@@ -1,0 +1,6 @@
+      permission     api component lifecycle   system   action           ui
+18699   INTERNET  <init>  activity  onCreate  Unknown  Unknown      Unknown
+18700   INTERNET  <init>   Unknown   Unknown  Unknown  Unknown       <init>
+18701   INTERNET  <init>  activity   Unknown  Unknown  Unknown  onItemClick
+18702   INTERNET  <init>   Unknown   Unknown  Unknown  Unknown       <init>
+18703   INTERNET  <init>  activity  onResume  Unknown  Unknown      Unknown

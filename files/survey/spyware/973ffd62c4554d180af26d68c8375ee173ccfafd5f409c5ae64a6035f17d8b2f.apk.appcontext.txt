@@ -1,0 +1,6 @@
+              permission     api component  lifecycle   system   action                    ui
+13538  REFLECTION_METHOD  invoke   Unknown    Unknown  Unknown  Unknown                <init>
+13539  REFLECTION_METHOD  invoke  activity    Unknown  Unknown  Unknown  onWindowFocusChanged
+13540  REFLECTION_METHOD  invoke  activity   onResume  Unknown  Unknown               Unknown
+13541  REFLECTION_METHOD  invoke  activity  onDestroy  Unknown  Unknown               Unknown
+13542  REFLECTION_METHOD  invoke  activity    onPause  Unknown  Unknown               Unknown

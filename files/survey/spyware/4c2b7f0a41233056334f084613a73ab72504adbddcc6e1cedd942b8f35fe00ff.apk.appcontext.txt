@@ -1,0 +1,6 @@
+             permission             api component lifecycle   system                      action       ui
+13515  READ_PHONE_STATE  getLine1Number  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+13516          INTERNET            bind  activity   Unknown  Unknown                     Unknown  onClick
+34267  READ_PHONE_STATE  getLine1Number  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown
+34268          INTERNET            bind  activity   Unknown  Unknown                     Unknown  onClick
+58829  READ_PHONE_STATE  getLine1Number  activity  onCreate  Unknown  android.intent.action.MAIN  Unknown

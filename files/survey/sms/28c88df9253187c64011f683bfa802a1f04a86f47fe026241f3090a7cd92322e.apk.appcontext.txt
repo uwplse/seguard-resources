@@ -1,0 +1,6 @@
+                 permission                   api component  lifecycle             system                                     action       ui
+16711  ACCESS_NETWORK_STATE  getActiveNetworkInfo  receiver  onReceive            Unknown                                    Unknown  Unknown
+16712  ACCESS_NETWORK_STATE  getActiveNetworkInfo  receiver  onReceive            Unknown                                    Unknown  Unknown
+16713  ACCESS_NETWORK_STATE  getActiveNetworkInfo   Unknown    Unknown  onLocationChanged                                    Unknown  Unknown
+16714  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity   onCreate            Unknown                                    Unknown  Unknown
+16715  ACCESS_NETWORK_STATE  getActiveNetworkInfo   service    onStart            Unknown  com.airpush.android.PushServiceStart14387  Unknown

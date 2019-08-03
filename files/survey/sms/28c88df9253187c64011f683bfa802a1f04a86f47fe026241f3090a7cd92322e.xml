@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+<manifest android:versionCode="5" android:versionName="1.0" package="com.tvtime" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<application android:icon="@7F02000C" android:label="@7F050000">
+		
+
+		<activity android:label="@7F050000" android:name="TVTime">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<activity android:name="com.tvtime.Main">
+</activity>
+		
+
+		<meta-data android:name="OPTIN_VERSION" android:value="2">
+</meta-data>
+		
+
+		<activity android:name="com.tvtime.Splash" android:screenOrientation="1">
+</activity>
+		
+
+		<activity android:name="com.tvtime.MainPage" android:screenOrientation="1">
+</activity>
+		
+
+		<activity android:name="com.tvtime.TermsAndConditions">
+</activity>
+		
+
+		<activity android:name="com.tvtime.PrivacyPolicy">
+</activity>
+		
+
+		<receiver android:name="com.tvtime.GoogleInterceptor">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="com.android.vending.INSTALL_REFERRER">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<activity android:configChanges="0x000000A0" android:name="com.airpush.android.PushAds">
+</activity>
+		
+
+		<receiver android:name="com.airpush.android.UserDetailsReceiver">
+</receiver>
+		
+
+		<receiver android:name="com.airpush.android.MessageReceiver">
+</receiver>
+		
+
+		<receiver android:name="com.airpush.android.DeliveryReceiver">
+</receiver>
+		
+
+		<receiver android:name="BootReceiver">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.BOOT_COMPLETED">
+</action>
+				
+
+				<category android:name="android.intent.category.HOME">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<service android:name="com.airpush.android.PushService">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="com.airpush.android.PushServiceStart14387">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</service>
+		
+
+	</application>
+	
+
+	<uses-sdk android:minSdkVersion="4">
+</uses-sdk>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.VIBRATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SEND_SMS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_SMS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_CONTACTS">
+</uses-permission>
+	
+
+</manifest>

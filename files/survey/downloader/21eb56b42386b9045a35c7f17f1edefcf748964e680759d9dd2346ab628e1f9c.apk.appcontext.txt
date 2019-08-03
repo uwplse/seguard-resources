@@ -1,0 +1,6 @@
+             permission             api component  lifecycle   system   action       ui
+8750          WAKE_LOCK           start  activity   onCreate  Unknown  Unknown  Unknown
+8751          WAKE_LOCK           start  activity   onCreate  Unknown  Unknown  Unknown
+8752          WAKE_LOCK           start  activity   onCreate  Unknown  Unknown  Unknown
+8753           INTERNET          <init>   service    onStart  Unknown  Unknown  Unknown
+8754  CHANGE_WIFI_STATE  setWifiEnabled  receiver  onReceive  Unknown  Unknown  Unknown

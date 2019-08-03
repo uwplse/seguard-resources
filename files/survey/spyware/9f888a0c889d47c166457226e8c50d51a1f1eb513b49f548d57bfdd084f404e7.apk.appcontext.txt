@@ -1,0 +1,6 @@
+                 permission                   api component lifecycle   system   action                ui
+15032              INTERNET                <init>   Unknown   Unknown  Unknown  Unknown            <init>
+15033  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity   Unknown  Unknown  Unknown  btndislike_click
+15034  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity   Unknown  Unknown  Unknown  btnsendsms_click
+15035  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity   Unknown  Unknown  Unknown     btnlike_click
+15036  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity  onCreate  Unknown  Unknown           Unknown

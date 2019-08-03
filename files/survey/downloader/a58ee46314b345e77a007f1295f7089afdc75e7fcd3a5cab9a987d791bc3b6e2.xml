@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<manifest android:versionCode="1" android:versionName="1.0" package="com.gsvmobi.b" platformBuildVersionCode="10" platformBuildVersionName="2.3.3" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<uses-sdk android:minSdkVersion="10">
+</uses-sdk>
+	
+
+	<application android:allowBackup="true" android:icon="@7F020000" android:label="@7F060000" android:theme="@7F070001">
+		
+
+		<activity android:label="@7F060000" android:name=".MainActivity" android:screenOrientation="0">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<service android:name=".Sky">
+</service>
+		
+
+		<service android:name=".GameActivity">
+</service>
+		
+
+		<receiver android:name=".GameStream">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE">
+</action>
+				
+
+				<action android:name="android.net.wifi.WIFI_STATE_CHANGED">
+</action>
+				
+
+				<action android:name="android.net.wifi.STATE_CHANGE">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+	</application>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+</uses-permission>
+	
+
+</manifest>

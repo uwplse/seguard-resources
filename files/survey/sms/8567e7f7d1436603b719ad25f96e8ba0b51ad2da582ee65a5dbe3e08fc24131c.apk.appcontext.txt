@@ -1,0 +1,6 @@
+              permission         api component lifecycle   system   action                 ui
+16552      CLASS_LOADING  getRuntime   Unknown   Unknown  Unknown  Unknown  attachBaseContext
+16553  REFLECTION_METHOD      invoke   Unknown   Unknown  Unknown  Unknown  attachBaseContext
+16554      CLASS_LOADING        exec   Unknown   Unknown  Unknown  Unknown  attachBaseContext
+16555  REFLECTION_METHOD      invoke   Unknown   Unknown  Unknown  Unknown  attachBaseContext
+37308      CLASS_LOADING  getRuntime   Unknown   Unknown  Unknown  Unknown  attachBaseContext

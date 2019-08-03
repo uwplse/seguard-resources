@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<manifest android:versionCode="1" android:versionName="1.0" package="com.autoru.application" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="15">
+</uses-sdk>
+	
+
+	<application android:icon="@7F020001" android:label="@7F040000" android:theme="@7F050000">
+		
+
+		<activity android:label="@7F040003" android:name=".MainActivity">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+	</application>
+	
+
+</manifest>

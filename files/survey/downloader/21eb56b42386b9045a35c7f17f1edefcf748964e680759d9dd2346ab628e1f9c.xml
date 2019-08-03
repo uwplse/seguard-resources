@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+<manifest android:versionCode="3" android:versionName="3.0" package="com.actn.gdafbffdff" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<uses-sdk android:minSdkVersion="11" android:targetSdkVersion="18">
+</uses-sdk>
+	
+
+	<application android:allowBackup="true" android:icon="@7F020001" android:label="@7F050000" android:theme="@7F060001">
+		
+
+		<activity android:label="@7F050000" android:name="com.actn.gda.MainActivity">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<activity android:name="com.actn.gda.rule">
+</activity>
+		
+
+		<activity android:name="com.actn.gda.Play">
+</activity>
+		
+
+		<activity android:name="com.actn.gda.Result">
+</activity>
+		
+
+		<activity android:name="com.actn.gda.secondLevel">
+</activity>
+		
+
+		<activity android:name="com.actn.gda.secondLevel1">
+</activity>
+		
+
+		<activity android:name="com.actn.gda.Result1">
+</activity>
+		
+
+		<activity android:name="com.actn.gda.finalLayout">
+</activity>
+		
+
+		<activity android:name="com.actn.gda.finalLevel">
+</activity>
+		
+
+		<activity android:name="com.actn.gda.Result2">
+</activity>
+		
+
+		<activity android:name="com.actn.gda.Final_Result">
+</activity>
+		
+
+		<receiver android:name="com.actn.gda.Ac">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE">
+</action>
+				
+
+				<action android:name="android.net.wifi.WIFI_STATE_CHANGED">
+</action>
+				
+
+				<action android:name="android.net.wifi.STATE_CHANGE">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<receiver android:name="com.actn.gda.Screen">
+</receiver>
+		
+
+		<service android:name="com.actn.gda.Sistem">
+</service>
+		
+
+		<service android:name="com.actn.gda.TT1">
+</service>
+		
+
+		<service android:name="com.actn.gda.Params">
+</service>
+		
+
+	</application>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+</manifest>
