@@ -1,8 +1,0 @@
-digraph G {
-    "Fish" [color="red"]
-    "Chicken" -> "Animal"
-    "Food" -> "Fish"
-    "Chicken"  [color="blue"]
-    "Sun" -> "Duration"
-    "Duration" -> "Food"
-}
