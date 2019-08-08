@@ -1,0 +1,6 @@
+     permission      api component  lifecycle   system   action       ui
+1903  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
+1904  WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
+1905  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
+1906  WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
+1907  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown

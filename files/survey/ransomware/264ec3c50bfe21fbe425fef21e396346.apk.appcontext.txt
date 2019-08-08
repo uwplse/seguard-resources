@@ -1,0 +1,6 @@
+     permission      api component  lifecycle   system   action       ui
+2111  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
+2112  WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
+2113  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
+2114  WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
+2115  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown

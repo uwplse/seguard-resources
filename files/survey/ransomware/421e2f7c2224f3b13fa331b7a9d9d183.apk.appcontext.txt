@@ -1,0 +1,6 @@
+     permission      api component  lifecycle   system   action       ui
+1980  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
+1981  WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
+1982  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
+1983  WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
+1984  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown

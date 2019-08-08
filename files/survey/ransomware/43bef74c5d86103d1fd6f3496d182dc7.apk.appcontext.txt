@@ -1,0 +1,6 @@
+      permission      api component  lifecycle   system   action       ui
+1509   WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
+1510   WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
+1511   WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
+1512   WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
+22193  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown

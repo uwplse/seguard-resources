@@ -1,0 +1,6 @@
+         permission         api component  lifecycle   system                                      action       ui
+2347      WAKE_LOCK     acquire   service   onCreate  Unknown                                     Unknown  Unknown
+2348      WAKE_LOCK     release   service  onDestroy  Unknown                                     Unknown  Unknown
+2349  CLASS_LOADING  getRuntime   service     onBind  Unknown                                     Unknown  Unknown
+2350  CLASS_LOADING  getRuntime   service  onDestroy  Unknown                                     Unknown  Unknown
+2351  CLASS_LOADING  getRuntime   service    onStart  Unknown  org.torproject.android.service.TOR_SERVICE  Unknown

