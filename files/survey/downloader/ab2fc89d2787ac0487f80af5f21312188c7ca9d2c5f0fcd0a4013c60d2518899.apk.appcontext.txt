@@ -1,6 +1,0 @@
-            permission          api component lifecycle   system   action       ui
-8755  READ_PHONE_STATE  getDeviceId  activity   onStart  Unknown  Unknown  Unknown
-8756  READ_PHONE_STATE  getDeviceId  activity   onPause  Unknown  Unknown  Unknown
-8757  READ_PHONE_STATE  getDeviceId  activity   onPause  Unknown  Unknown  Unknown
-8758  READ_PHONE_STATE  getDeviceId  activity    onStop  Unknown  Unknown  Unknown
-8759  READ_PHONE_STATE  getDeviceId  activity  onCreate  Unknown  Unknown  Unknown

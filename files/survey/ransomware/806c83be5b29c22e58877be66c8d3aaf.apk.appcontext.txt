@@ -1,6 +1,0 @@
-     permission      api component  lifecycle   system   action       ui
-1752  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
-1753  WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
-1754  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown
-1755  WAKE_LOCK  release   service  onDestroy  Unknown  Unknown  Unknown
-1756  WAKE_LOCK  acquire   service   onCreate  Unknown  Unknown  Unknown

@@ -1,6 +1,0 @@
-                permission                   api component  lifecycle   system                      action             ui
-3879  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity    Unknown  Unknown                     Unknown  onBackPressed
-3880  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity   onCreate  Unknown                     Unknown        Unknown
-3881  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity   onCreate  Unknown  android.intent.action.MAIN        Unknown
-3882  ACCESS_NETWORK_STATE  getActiveNetworkInfo  activity  onDestroy  Unknown                     Unknown        Unknown
-3883  ACCESS_NETWORK_STATE  getActiveNetworkInfo   service    onStart  Unknown                     Unknown        Unknown
