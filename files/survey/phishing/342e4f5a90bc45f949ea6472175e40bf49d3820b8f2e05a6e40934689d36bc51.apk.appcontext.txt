@@ -1,6 +1,0 @@
-        permission                api component lifecycle   system   action       ui
-8649  GET_ACCOUNTS  getAccountsByType  activity  onCreate  Unknown  Unknown  Unknown
-8650     WAKE_LOCK        setVideoURI  activity  onCreate  Unknown  Unknown  Unknown
-8651     WAKE_LOCK        setVideoURI  activity  onCreate  Unknown  Unknown  Unknown
-8652     WAKE_LOCK              start  activity  onCreate  Unknown  Unknown  Unknown
-8653     WAKE_LOCK              start  activity  onCreate  Unknown  Unknown  Unknown

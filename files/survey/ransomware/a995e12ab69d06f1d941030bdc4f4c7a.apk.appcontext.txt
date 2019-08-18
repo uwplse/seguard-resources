@@ -1,6 +1,0 @@
-            permission             api component  lifecycle   system   action       ui
-2416         WAKE_LOCK         acquire   service   onCreate  Unknown  Unknown  Unknown
-2417         WAKE_LOCK         release   service  onDestroy  Unknown  Unknown  Unknown
-2418         WAKE_LOCK         acquire   service   onCreate  Unknown  Unknown  Unknown
-2419         WAKE_LOCK         release   service  onDestroy  Unknown  Unknown  Unknown
-2420  READ_PHONE_STATE  getLine1Number  activity    Unknown  Unknown  Unknown  onClick

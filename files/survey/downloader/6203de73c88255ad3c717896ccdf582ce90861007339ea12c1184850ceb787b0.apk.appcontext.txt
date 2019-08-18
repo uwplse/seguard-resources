@@ -1,6 +1,0 @@
-          permission           api component lifecycle   system   action            ui
-20385  SET_WALLPAPER  setWallpaper  activity   Unknown  Unknown  Unknown  setWallpaper
-20386  SET_WALLPAPER  setWallpaper  activity   Unknown  Unknown  Unknown  setWallpaper
-20387       INTERNET        <init>  activity  onCreate  Unknown  Unknown       Unknown
-20388       INTERNET        <init>  activity  onCreate  Unknown  Unknown       Unknown
-20389       INTERNET        <init>  activity  onCreate  Unknown  Unknown       Unknown

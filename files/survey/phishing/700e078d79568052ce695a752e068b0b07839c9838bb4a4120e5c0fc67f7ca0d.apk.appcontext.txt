@@ -1,6 +1,0 @@
-             permission                 api component  lifecycle   system                      action       ui
-29492  READ_PHONE_STATE      getLine1Number   service   onCreate  Unknown                     Unknown  Unknown
-29493  READ_PHONE_STATE         getDeviceId  activity   onCreate  Unknown  android.intent.action.MAIN  Unknown
-29494          SEND_SMS     sendTextMessage  receiver  onReceive  Unknown                     Unknown  Unknown
-29495  READ_PHONE_STATE  getSimSerialNumber  receiver  onReceive  Unknown                     Unknown  Unknown
-29496  READ_PHONE_STATE      getLine1Number  receiver  onReceive  Unknown                     Unknown  Unknown
