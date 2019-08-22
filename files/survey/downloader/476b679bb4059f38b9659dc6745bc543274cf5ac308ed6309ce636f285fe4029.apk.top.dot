@@ -1,0 +1,36 @@
+strict digraph "" {
+	graph ["graph"="{}"];
+	"Internet Access/Download"	 [color=red,
+		domain=library,
+		type=merged];
+	getPackageInfo	 [color=red,
+		domain=library,
+		type=merged];
+	addFlags	 [color=red,
+		domain=library,
+		type=merged];
+	"background thread"	 [color=blue,
+		domain=library,
+		type=entrypoint];
+	"background thread" -> "Internet Access/Download"	 [color=black,
+		deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL",
+		type=DEP];
+	"background thread" -> addFlags	 [color=black,
+		deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL-CALL-CALL-CALL",
+		type=DEP];
+	"Run in background"	 [color=blue,
+		domain=library,
+		type=entrypoint];
+	"Run in background" -> getPackageInfo	 [color=black,
+		deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL",
+		type=DEP];
+	"Run in background" -> addFlags	 [color=black,
+		deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL-CALL",
+		type=DEP];
+	"Shared storage"	 [color=red,
+		domain=library,
+		type=merged];
+	"Run in background" -> "Shared storage"	 [color=black,
+		deps="FROM_SENSITIVE_PARENT_TO_SENSITIVE_API-CALL",
+		type=DEP];
+}
