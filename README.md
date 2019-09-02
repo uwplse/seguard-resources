@@ -6,7 +6,7 @@ SeGuard is a static analyzer framework for building semantic graphs of android m
 
 ## Quick start
 
-Download `seguard-java.tar.gz` and `seguard-python.tar.gz` to current folder from https://github.com/uwplse/seguard-resources/releases.
+Download `seguard-java.tar.gz` and `seguard-python.tar.gz` to current folder from https://github.com/uwplse/seguard-resources/releases. Install dependencies [specified here](https://izgzhen.github.io/seguard-www/quickstart.html).
 
 ```
 # project root
