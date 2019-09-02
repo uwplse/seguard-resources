@@ -44,6 +44,3 @@ https://github.com/izgzhen/seguard-resources/wiki
 
 - [SeGuard error anlaysis](https://vimeo.com/350633606), [transcript](files/transcript/error-analysis-01.txt)
 
-## Surveys
-
-https://www.surveymonkey.com/r/X5HHJBQ
