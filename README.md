@@ -6,7 +6,19 @@ SeGuard is a static analyzer framework for building semantic graphs of android m
 
 ## Quick start
 
-Download `seguard-java.tar.gz` and `seguard-python.tar.gz` to current folder from https://github.com/uwplse/seguard-resources/releases. Install dependencies [specified here](https://izgzhen.github.io/seguard-www/quickstart.html).
+Download `seguard-java.tar.gz` and `seguard-python.tar.gz` to current folder from https://github.com/uwplse/seguard-resources/releases. Install dependencies [specified here](https://izgzhen.github.io/seguard-www/quickstart.html) or use the following quick instructions:
+
+For ubuntu (assuming using `bash`):
+
+```
+$ wget https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u222-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u222b10.tar.gz
+$ tar xvf OpenJDK8U-jdk_x64_linux_hotspot_8u222b10.tar.gz
+$ echo "export PATH=$PWD/jdk8u222-b10/bin:$PATH" >> ~/.bashrc
+$ source ~/.bashrc
+$ sudo apt-get install gcc python-virtualenv python3-dev maven graphviz libgraphviz-dev unzip
+```
+
+Then,
 
 ```
 # project root
@@ -29,6 +41,8 @@ pip install -e tools/python
 # try it
 tools/seguard-cli examples/drebin0-5fd871.apk
 ```
+
+Check out https://izgzhen.github.io/seguard-www/troubleshooting.html if you got into any problems.
 
 ## Onboarding for New Contributor
 
