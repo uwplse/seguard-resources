@@ -62,6 +62,10 @@ https://github.com/izgzhen/seguard-resources/wiki
 
 - [SeGuard error anlaysis](https://vimeo.com/350633606), [transcript](files/transcript/error-analysis-01.txt)
 
+## Live demo (WIP)
+
+http://bit.ly/SeGuardDemo
+
 ## Team
 
 - Lead Developer: [Zhen Zhang](https://homes.cs.washington.edu/~zgzhen/)
