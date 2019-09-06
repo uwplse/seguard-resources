@@ -1,2 +1,6 @@
 .ipynb_checkpoints
 .DS_Store
+plan.txt
+code/ml-experiment/emb/*.emb
+code/ml-experiment/graph/*.edgelist
+code/ml-experiment/final_result.pickle

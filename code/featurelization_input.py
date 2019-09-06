@@ -5,7 +5,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pygraphviz
 
-from tools.python.seguard.graph import Graph
+from seguard.graph import Graph
+
+# make it more generalizable
 fh = open("test_edge.edgelist",'w')
 
 test_graph =  Graph(dot_file="31a6a74c272af95f5223602e12ef1364527f584675445530eee060e635d2cafb.apk.top.dot", config=default_config)
