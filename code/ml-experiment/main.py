@@ -77,7 +77,6 @@ def main(args):
     pwd = os.getcwd()
     # default source is in data/graphs
     src = os.path.abspath(os.path.dirname(os.path.dirname(pwd))+os.path.sep+".") + os.path.sep + 'data/graphs'
-    print(src)
 
     # from file name to the dictonary 
     d = {}
