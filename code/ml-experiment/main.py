@@ -11,6 +11,7 @@ from sklearn.feature_extraction import DictVectorizer
 import pickle
 import subprocess
 from tqdm import tqdm
+from utility import parSet
 
 from seguard.graph import Graph
 
@@ -43,9 +44,9 @@ def node2vec_mapping(name, arg, data):
     nx.write_edgelist(converted, edge_name, data=False)
 
     command = "./node2vec -i:" + edge_name + " -o:" + result_name
-    command += ' -d:' + str(data.dimensions)
-    command += ' -l:' + str(data.walk_length)
-    command += ' -r:' + str(data.num_walks)
+    command += ' -d:' + str(data.dim)
+    command += ' -l:' + str(data.walk)
+    command += ' -r:' + str(data.num_walk)
     command += ' -p:' + str(data.p)
     command += ' -q:' + str(data.q)
     subprocess.call(command, shell=True)
@@ -177,9 +178,9 @@ class cGraph(object):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Featurelization.")
-    parser.add_argument('--dimensions', type=int, default=128, help='Number of dimensions. Default is 128.')
-    parser.add_argument('--walk-length', type=int, default=80, help='Length of walk per source. Default is 80.')
-    parser.add_argument('--num-walks', type=int, default=10, help='Number of walks per source. Default is 10.')
+    parser.add_argument('--dim', type=int, default=128, help='Number of dimensions. Default is 128.')
+    parser.add_argument('--walk', type=int, default=80, help='Length of walk per source. Default is 80.')
+    parser.add_argument('--num-walk', type=int, default=10, help='Number of walks per source. Default is 10.')
     parser.add_argument('--p', type=float, default=1, help='Return hyperparameter. Default is 1.')
     parser.add_argument('--q', type=float, default=1, help='Inout hyperparameter. Default is 1.')
     return parser.parse_args()
