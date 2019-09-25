@@ -48,16 +48,8 @@ def process_data(vecs, targets):
     data = np.array(data)
     return data, target
 
-# y_pred = cross_val_predict(clf, X_data, X_true, cv = 10)
-# print(accuracy_score(X_true, y_pred))
 
-
-# flow -> 
-#  选一个参数，然后在一个大概10个大小的list里面iterate， 每一次iterate都会call一次featurelization code
-#  然后process data，做以上的following， 然后把参数集和accracy result写在一个pickle文件里，使用dict
-
-
-def test(params, trueval, df):
+def test(params, trueval):
     main(params)
     with open('final_result.pickle', 'rb') as handle:
         vecs = pickle.load(handle)
@@ -65,18 +57,20 @@ def test(params, trueval, df):
     clf = RandomForestClassifier(n_estimators=100, max_depth=50, random_state=0)
     scores = cross_val_score(clf, X_data, X_true, cv=10)
     
+    temp1 = scores.mean()
+    temp2 = scores.std()
     df2 = pd.DataFrame({
         "dim":[params.dim],
         "walk":[params.walk],
         "num_walk":[params.num_walk],
         "p":[params.p],
         "q":[params.q],
-        "score":[scores.mean],
-        "std":[scores.std]
+        "score":[temp1],
+        "std":[temp2]
     } 
     )
 
-    df.append(df2)
+    return df2
 
 
 
@@ -105,6 +99,9 @@ for dim in dimSet:
             for q in qSet:
                 for p in pSet:
                     par = parSet(dim = dim, walk = walk, num_walk = num_walk, q = q, p = p)
-                    test(par, t, df)
+                    
+                    df2 = test(par, t)
+                    df = df.append(df2, ignore_index=True)
+
 
 export_csv = df.to_csv('result.csv', sep='\t')
