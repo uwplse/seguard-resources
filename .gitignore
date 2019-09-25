@@ -4,3 +4,5 @@ plan.txt
 code/ml-experiment/emb/*.emb
 code/ml-experiment/graph/*.edgelist
 code/ml-experiment/final_result.pickle
+code/ml-experiment/result.csv
+code/ml-experiment/data_analysis.py
