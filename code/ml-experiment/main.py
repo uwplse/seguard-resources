@@ -185,6 +185,6 @@ def parse_args():
     parser.add_argument('--q', type=float, default=1, help='Inout hyperparameter. Default is 1.')
     return parser.parse_args()
 
-if __name__ == "__main__":
-    args = parse_args()
-    main(args)
+# if __name__ == "__main__":
+#     args = parse_args()
+#     main(args)

@@ -24,7 +24,6 @@ def true_val():
     temp = set(res.values())
     temp = list(temp)
     temp.sort()
-    # print(temp)
     res2 = {i: temp.index(res[i]) for i in list(res.keys())}
     return res2
 
@@ -73,35 +72,37 @@ def test(params, trueval):
     return df2
 
 
+def scpt():
+    t = true_val()
 
-t = true_val()
-
-dimSet = [50, 70, 100, 128, 200, 250, 300, 500]
-walkSet= [5, 10, 15, 20, 30]
-num_walkSet = [5, 10, 15, 20, 30]
-qSet = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
-pSet = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
-
-
-df = pd.DataFrame({
-    "dim":[],
-    "walk":[],
-    "num_walk":[],
-    "p":[],
-    "q":[],
-    "score":[],
-    "std":[]
-})
-
-for dim in dimSet:
-    for walk in walkSet:
-        for num_walk in num_walkSet:
-            for q in qSet:
-                for p in pSet:
-                    par = parSet(dim = dim, walk = walk, num_walk = num_walk, q = q, p = p)
-                    
-                    df2 = test(par, t)
-                    df = df.append(df2, ignore_index=True)
+    dimSet = [50, 70, 100, 128, 200, 250, 300, 500]
+    walkSet= [5, 10, 15, 20, 30]
+    num_walkSet = [5, 10, 15, 20, 30]
+    qSet = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
+    pSet = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
 
 
-export_csv = df.to_csv('result.csv', sep='\t')
+    df = pd.DataFrame({
+        "dim":[],
+        "walk":[],
+        "num_walk":[],
+        "p":[],
+        "q":[],
+        "score":[],
+        "std":[]
+    })
+
+    for dim in dimSet:
+        for walk in walkSet:
+            for num_walk in num_walkSet:
+                for q in qSet:
+                    for p in pSet:
+                        par = parSet(dim = dim, walk = walk, num_walk = num_walk, q = q, p = p)
+                        
+                        df2 = test(par, t)
+                        df = df.append(df2, ignore_index=True)
+
+
+    export_csv = df.to_csv('result.csv', sep='\t')
+
+

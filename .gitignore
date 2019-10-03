@@ -5,4 +5,5 @@ code/ml-experiment/emb/*.emb
 code/ml-experiment/graph/*.edgelist
 code/ml-experiment/final_result.pickle
 code/ml-experiment/result.csv
-code/ml-experiment/data_analysis.py
+code/ml-experiment/good_params.txt
+code/ml-experiment/experiment_2.csv
