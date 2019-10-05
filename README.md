@@ -61,6 +61,7 @@ https://github.com/izgzhen/seguard-resources/wiki
 ## Video Tutorials
 
 - [SeGuard error anlaysis](https://vimeo.com/350633606), [transcript](files/transcript/error-analysis-01.txt)
+- [Issue #66 Debug Demo](https://youtu.be/M6AUuDf7Qwg): [link to issue](https://github.com/izgzhen/seguard-framework/issues/66)
 
 ## Live demo (WIP)
 
