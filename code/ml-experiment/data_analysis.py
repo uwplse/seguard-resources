@@ -10,10 +10,6 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict
 import pickle
 
-# def test(par, trueval):
-
-
-
 data = pd.read_csv('result.csv', sep = '\t')
 # print(data.head(3))
 good_parameters = data[(data['score'] > 0.74) & (data['std'] < 0.2)]

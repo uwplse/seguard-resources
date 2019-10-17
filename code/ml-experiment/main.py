@@ -10,6 +10,7 @@ import copy
 from sklearn.feature_extraction import DictVectorizer
 import pickle
 import subprocess
+import time
 from tqdm import tqdm
 from utility import parSet
 
@@ -73,13 +74,11 @@ def strToVec(arg):
         ans[i] = float(ans[i])
     return ans
 
-
-def main(args):
+def lib_gen(args):
     pwd = os.getcwd()
     # default source is in data/graphs
-    src = os.path.abspath(os.path.dirname(os.path.dirname(pwd))+os.path.sep+".") + os.path.sep + 'data/graphs'
-
-    # from file name to the dictonary 
+    src = os.path.abspath(os.path.dirname(os.path.dirname(pwd))+
+            os.path.sep+".") + os.path.sep + 'data/graphs'
     d = {}
     node_lib = set()
     edge_lib = set()
@@ -99,7 +98,18 @@ def main(args):
     
     node_lib = {x : 1 for x in node_lib}
     edge_lib = {x : 1 for x in edge_lib}
-    # edge_lib = dict(map(lambda x: {x:1}, list(edge_lib)))
+
+    return d, node_lib, edge_lib
+    
+
+
+def main(args):
+    pwd = os.getcwd()
+    # default source is in data/graphs
+    src = os.path.abspath(os.path.dirname(os.path.dirname(pwd))+
+            os.path.sep+".") + os.path.sep + 'data/graphs'
+
+    d, node_lib, edge_lib = lib_gen(args)
 
     result = {}
     for root, dirs, files in os.walk(src):
@@ -108,7 +118,6 @@ def main(args):
             vec1 = g.node_one_hot(node_lib)
             vec2 = g.edge_one_hot(edge_lib)
             vec3 = g.distance(node_lib)
-            
             res =  np.concatenate((vec1, vec2, vec3),axis = None)
             result.update({file: res })
 
@@ -130,8 +139,6 @@ class cGraph(object):
         lib1.append(lib)
         v.fit(lib1)
         X = v.transform(self.nodes)
-        # print("sample")
-        # print(X)
         return X[0]
 
     def edge_one_hot(self, lib):
