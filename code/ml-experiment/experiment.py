@@ -4,19 +4,23 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict
-from utility import parSet
+from main import parSet
 from main import main
+from main import cGraph
 import pandas as pd
+from seguard.graph import Graph
+from seguard.common import default_config
 
 from sklearn.metrics import accuracy_score
 # scans through the graphs in data/graphs, and denote their real values
 # filename -> label, then list(label), sort, -> filename -> loc[label]
 
-def true_val():
+def true_val(src='data/graphs'):
     res = {}
     pwd = os.getcwd()
     # default source is in data/graphs
-    src = os.path.abspath(os.path.dirname(os.path.dirname(pwd))+os.path.sep+".") + os.path.sep + 'data/graphs'
+    src = os.path.abspath(os.path.dirname(
+        os.path.dirname(pwd))+os.path.sep+".") + os.path.sep + src
     for root, dirs, files in os.walk(src):
         ans = root.split("/")[-1]
         for file in files:
@@ -26,11 +30,6 @@ def true_val():
     temp.sort()
     res2 = {i: temp.index(res[i]) for i in list(res.keys())}
     return res2
-
-#  now, we have feature vectors and true values, use random forest, which appeared to be the best
-#  clf in the last experiment
-#  need to first transform the data into the desired forms 
-
 
 #  both vecs and targets are dicts 
 def process_data(vecs, targets):
@@ -48,9 +47,8 @@ def process_data(vecs, targets):
     return data, target
 
 
-def test(params, trueval):
-    main(params)
-    with open('final_result.pickle', 'rb') as handle:
+def evaluate(name,trueval=None):
+    with open(name, 'rb') as handle:
         vecs = pickle.load(handle)
     X_data, X_true = process_data(vecs, trueval)
     clf = RandomForestClassifier(n_estimators=100, max_depth=50, random_state=0)
@@ -58,21 +56,87 @@ def test(params, trueval):
     
     temp1 = scores.mean()
     temp2 = scores.std()
+    return temp1, temp2
+
+def test(params, trueval):
+    main(params)
+    mean, std = evaluate('final_result.pickle', trueval)
     df2 = pd.DataFrame({
         "dim":[params.dim],
         "walk":[params.walk],
         "num_walk":[params.num_walk],
         "p":[params.p],
         "q":[params.q],
-        "score":[temp1],
-        "std":[temp2]
+        "score":[mean],
+        "std":[std]
     } 
     )
 
     return df2
 
+# previous method that only uses node-one-hot encoding and edge-one-hot encoding
+def prev_method(src='data/graphs'):
+    pwd = os.getcwd()
+    # default source is in data/graphs
+    src = os.path.abspath(os.path.dirname(os.path.dirname(pwd))+
+            os.path.sep+".") + os.path.sep + src
+    d = {}
+    node_lib = set()
+    edge_lib = set()
+    for root, dirs, files in os.walk(src):
+        for file in files:
+            filename, file_extension = os.path.splitext(root + os.sep + file)
+            if file_extension == '.dot':
+                G = Graph(dot_file=root + os.sep + file, config=default_config)
+                # methodName -> 1
+                temp_nodes = {x : 1 for x in list(G.nodes)}
+                # (methodName, methodName) -> 1
+                temp_edges = {x : 1 for x in list(G.edges)}
 
-def scpt():
+                node_lib = node_lib.union(G.nodes)
+                edge_lib = edge_lib.union(G.edges)
+                d.update({file: cGraph(graph = G, nodes = temp_nodes, edges = temp_edges)}) 
+    
+    node_lib = {x : 1 for x in node_lib}
+    edge_lib = {x : 1 for x in edge_lib}
+
+    result = {}
+    for root, dirs, files in os.walk(src):
+        for file in files:
+            filename, file_extension = os.path.splitext(root + os.sep + file)
+            if file_extension == '.dot':
+                g = d[file]
+                vec1 = g.node_one_hot(node_lib)
+                vec2 = g.edge_one_hot(edge_lib)
+                res =  np.concatenate((vec1, vec2),axis = None)
+                result.update({file: res })
+
+    with open('final_result_prev.pickle', 'wb') as handle:
+        pickle.dump(result, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+def compare():
+
+    # an arbitrary good parameter set
+    par = parSet(
+        dim = 500, 
+        walk = 15, 
+        num_walk = 5, 
+        q = 0.25,
+        p = 0.5
+    )
+    t = true_val(src='metadata')
+
+    main(par, src='metadata')
+    prev_method(src='metadata')
+    new_mean, new_std = evaluate('final_result.pickle', t)
+    prev_mean, prev_std = evaluate('final_result_prev.pickle', t)
+    
+    with open('compare_result.txt','w') as handle:
+        string = "new_mean: {}, new_std: {}, prev_mean: {}, prev_std: {}".format(new_mean, new_std, prev_mean, prev_std) 
+        handle.write(string)
+
+
+def grid_search():
     t = true_val()
 
     dimSet = [50, 70, 100, 128, 200, 250, 300, 500]
@@ -97,12 +161,14 @@ def scpt():
             for num_walk in num_walkSet:
                 for q in qSet:
                     for p in pSet:
-                        par = parSet(dim = dim, walk = walk, num_walk = num_walk, q = q, p = p)
+                        par = parSet(dim = dim, 
+                                    walk = walk,
+                                    num_walk = num_walk,
+                                    q = q, 
+                                    p = p)
                         
                         df2 = test(par, t)
                         df = df.append(df2, ignore_index=True)
 
 
     export_csv = df.to_csv('result.csv', sep='\t')
-
-

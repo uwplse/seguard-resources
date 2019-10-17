@@ -12,7 +12,6 @@ import pickle
 import subprocess
 import time
 from tqdm import tqdm
-from utility import parSet
 
 from seguard.graph import Graph
 
@@ -74,27 +73,32 @@ def strToVec(arg):
         ans[i] = float(ans[i])
     return ans
 
-def lib_gen(args):
+def lib_gen(args, src='data/graphs'):
     pwd = os.getcwd()
     # default source is in data/graphs
-    src = os.path.abspath(os.path.dirname(os.path.dirname(pwd))+
-            os.path.sep+".") + os.path.sep + 'data/graphs'
+    if(src == 'data/graphs'):
+        src = os.path.abspath(os.path.dirname(os.path.dirname(pwd))+
+            os.path.sep+".") + os.path.sep + src
+    print("src: " + str(src))
     d = {}
     node_lib = set()
     edge_lib = set()
     for root, dirs, files in os.walk(src):
         for file in files:
-            G = Graph(dot_file=root + os.sep + file, config=default_config)
-            # methodName -> vector
-            temp = node2vec_mapping(file, G, args)
-            # methodName -> 1
-            temp_nodes = {x : 1 for x in list(G.nodes)}
-            # (methodName, methodName) -> 1
-            temp_edges = {x : 1 for x in list(G.edges)}
+            # print("file name: " + str())
+            filename, file_extension = os.path.splitext(root + os.sep + file)
+            if file_extension == '.dot':
+                G = Graph(dot_file=root + os.sep + file, config=default_config)
+                # methodName -> vector
+                temp = node2vec_mapping(file, G, args)
+                # methodName -> 1
+                temp_nodes = {x : 1 for x in list(G.nodes)}
+                # (methodName, methodName) -> 1
+                temp_edges = {x : 1 for x in list(G.edges)}
 
-            node_lib = node_lib.union(G.nodes)
-            edge_lib = edge_lib.union(G.edges)
-            d.update({file: cGraph(graph = G, vec = temp, nodes = temp_nodes, edges = temp_edges)}) 
+                node_lib = node_lib.union(G.nodes)
+                edge_lib = edge_lib.union(G.edges)
+                d.update({file: cGraph(graph = G, vec = temp, nodes = temp_nodes, edges = temp_edges)}) 
     
     node_lib = {x : 1 for x in node_lib}
     edge_lib = {x : 1 for x in edge_lib}
@@ -103,23 +107,27 @@ def lib_gen(args):
     
 
 
-def main(args):
+def main(args, src='data/graphs'):
     pwd = os.getcwd()
     # default source is in data/graphs
     src = os.path.abspath(os.path.dirname(os.path.dirname(pwd))+
-            os.path.sep+".") + os.path.sep + 'data/graphs'
-
-    d, node_lib, edge_lib = lib_gen(args)
+            os.path.sep+".") + os.path.sep + src
+    d, node_lib, edge_lib = lib_gen(args, src=src)
 
     result = {}
     for root, dirs, files in os.walk(src):
         for file in files:
-            g = d[file]
-            vec1 = g.node_one_hot(node_lib)
-            vec2 = g.edge_one_hot(edge_lib)
-            vec3 = g.distance(node_lib)
-            res =  np.concatenate((vec1, vec2, vec3),axis = None)
-            result.update({file: res })
+            filename, file_extension = os.path.splitext(root + os.sep + file)
+            if file_extension == '.dot':
+            # print("file name: ")
+            # print(file)
+            # print("dict length: " + str(len(d)))
+                g = d[file]
+                vec1 = g.node_one_hot(node_lib)
+                vec2 = g.edge_one_hot(edge_lib)
+                vec3 = g.distance(node_lib)
+                res =  np.concatenate((vec1, vec2, vec3),axis = None)
+                result.update({file: res })
 
     with open('final_result.pickle', 'wb') as handle:
         pickle.dump(result, handle, protocol=pickle.HIGHEST_PROTOCOL)
@@ -182,6 +190,16 @@ class cGraph(object):
         
         return res
 
+# the class parSet defines the parameters we are fine tuning
+class parSet:
+    def __init__(self, dim, walk, num_walk, q, p):
+        self.dim = dim
+        self.walk = walk
+        self.num_walk = num_walk
+        self.q = q
+        self.p = p
+    def __str__(self):
+        return str(self.dim) + '_' + str(self.walk) + '_' + str(self.num_walk) + '_' + str(self.p) + '_' + str(self.q)
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Featurelization.")

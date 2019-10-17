@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-from utility import parSet
+from main import parSet
 import numpy as np
 from experiment import process_data
 import time
