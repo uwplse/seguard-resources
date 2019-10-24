@@ -11,3 +11,4 @@ code/ml-experiment/*.png
 metadata/
 code/ml-experiment/compare_result.txt
 code/ml-experiment/final_result_prev.pickle
+code/ml-experiment/distance_test

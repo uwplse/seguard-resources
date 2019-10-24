@@ -10,6 +10,8 @@ from main import cGraph
 import pandas as pd
 from seguard.graph import Graph
 from seguard.common import default_config
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 from sklearn.metrics import accuracy_score
 # scans through the graphs in data/graphs, and denote their real values
@@ -172,3 +174,61 @@ def grid_search():
 
 
     export_csv = df.to_csv('result.csv', sep='\t')
+
+
+def draw(size, lib, trueval):
+    index = np.random.randint(0, len(lib), size=size)
+    names = lib.keys()
+    names = names[index]
+    lib_res = {name : lib[name] for name in names}
+    tru_res = {name : trueval[name] for name in names}
+    return lib_res, tru_res
+
+def reading_lib(file):
+    with open(file, 'rb') as handle:
+        vecs = pickle.load(handle)
+    return vecs
+
+def tru_bin(src='data/graphs'):
+    res = {}
+    pwd = os.getcwd()
+    # default source is in data/graphs
+    src = os.path.abspath(os.path.dirname(
+        os.path.dirname(pwd))+os.path.sep+".") + os.path.sep + src
+    for root, dirs, files in os.walk(src):
+        ans = root.split("/")[-1]
+        for file in files:
+            res.update({file : 0 if ans == 'benign' else 0})
+    return res
+
+
+# test the accuracy based on the size of the dataset 
+def dataset_test_binary():
+    ran = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
+    par = parSet(
+        dim = 500, 
+        walk = 15, 
+        num_walk = 5, 
+        q = 0.25,
+        p = 0.5
+    )
+    main(par)
+    lib = reading_lib('final_result.pickle')
+    t = tru_bin(src='metadata')
+    s = t.keys()
+    mean = []
+    std = []
+    for ran_1 in ran:
+        selected_vecs, selected_tru = draw(size=ran_1, lib=lib, trueval=t)
+        clf = RandomForestClassifier(n_estimators=100, max_depth=50, random_state=0)
+        scores = cross_val_score(clf, selected_vecs, selected_tru, cv=10)
+        
+        temp1 = scores.mean()
+        temp2 = scores.std()
+        mean.append(temp1)
+        std.append(temp2)
+    
+    plt.plot(ran, mean, )
+
+def dataset_test_multivariate():
+    ran = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
