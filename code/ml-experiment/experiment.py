@@ -35,7 +35,7 @@ def true_val(src='data/graphs'):
 
 #  both vecs and targets are dicts 
 def process_data(vecs, targets):
-    temp = list(vecs.keys())
+    temp = list(targets.keys())
     temp.sort()
 
     data = []
@@ -116,20 +116,19 @@ def prev_method(src='data/graphs'):
     with open('final_result_prev.pickle', 'wb') as handle:
         pickle.dump(result, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-def compare():
-
+def compare(src='data/graphs'):
     # an arbitrary good parameter set
     par = parSet(
-        dim = 500, 
-        walk = 15, 
-        num_walk = 5, 
-        q = 0.25,
-        p = 0.5
+        dim=250,
+        walk=15,
+        num_walk=8,
+        q=0.25,
+        p=4.0
     )
-    t = true_val(src='metadata')
+    t = true_val(src=src)
 
-    main(par, src='metadata')
-    prev_method(src='metadata')
+    main(par, src=src)
+    prev_method(src=src)
     new_mean, new_std = evaluate('final_result.pickle', t)
     prev_mean, prev_std = evaluate('final_result_prev.pickle', t)
     
@@ -176,13 +175,14 @@ def grid_search():
     export_csv = df.to_csv('result.csv', sep='\t')
 
 
-def draw(size, lib, trueval):
-    index = np.random.randint(0, len(lib), size=size)
-    names = lib.keys()
-    names = names[index]
-    lib_res = {name : lib[name] for name in names}
+def draw(size, lib_new, lib_prev, trueval):
+    index = np.random.randint(0, len(lib_new), size=size)
+    names = list(lib_new.keys())
+    names = [names[i] for i in index.tolist()]
+    lib_res = {name : lib_new[name] for name in names}
     tru_res = {name : trueval[name] for name in names}
-    return lib_res, tru_res
+    lib_prev_res = {name: lib_prev[name] for name in names}
+    return lib_res, lib_prev_res, tru_res
 
 def reading_lib(file):
     with open(file, 'rb') as handle:
@@ -196,39 +196,59 @@ def tru_bin(src='data/graphs'):
     src = os.path.abspath(os.path.dirname(
         os.path.dirname(pwd))+os.path.sep+".") + os.path.sep + src
     for root, dirs, files in os.walk(src):
+        # print("ans:-----------")
         ans = root.split("/")[-1]
+        # print(ans)
+        # print("files:----------")
+        print(files)
         for file in files:
-            res.update({file : 0 if ans == 'benign' else 0})
+            res.update({file : 1 if ans == 'benign' else 0})
     return res
 
-
 # test the accuracy based on the size of the dataset 
-def dataset_test_binary():
-    ran = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
+def dataset_test_binary(src='data/graphs', fn=tru_bin, cv=10,name='Binary'):
+    ran = [50, 100, 150, 200, 250, 314]
     par = parSet(
-        dim = 500, 
-        walk = 15, 
-        num_walk = 5, 
-        q = 0.25,
-        p = 0.5
+        dim=250,
+        walk=15,
+        num_walk=8,
+        q=0.25,
+        p=3.0
     )
-    main(par)
-    lib = reading_lib('final_result.pickle')
-    t = tru_bin(src='metadata')
+    main(par,src='metadata')
+    prev_method(src='metadata')
+    lib_prev = reading_lib('final_result_prev.pickle')
+    lib_new = reading_lib('final_result.pickle')
+    t = fn(src='metadata')
     s = t.keys()
-    mean = []
-    std = []
+    new = []
+    prev = []
     for ran_1 in ran:
-        selected_vecs, selected_tru = draw(size=ran_1, lib=lib, trueval=t)
-        clf = RandomForestClassifier(n_estimators=100, max_depth=50, random_state=0)
-        scores = cross_val_score(clf, selected_vecs, selected_tru, cv=10)
+        temp1 = []
+        temp2 = []
+        for ran_2 in range(10):
+            selected_vecs, selected_prev, selected_tru = draw(size=ran_1, lib_new=lib_new, lib_prev=lib_prev, trueval=t)
+            selected_vecs, selected_tru_w = process_data(selected_vecs, selected_tru)
+            selected_prev, selected_tru = process_data(selected_prev, selected_tru)
+            clf = RandomForestClassifier(n_estimators=100, max_depth=50, random_state=0)
+            scores_new = cross_val_score(clf, selected_vecs, selected_tru_w, cv=cv)
+
+            clf_2 = RandomForestClassifier(n_estimators=100, max_depth=50, random_state=0)
+            scores_prev = cross_val_score(clf, selected_prev, selected_tru_w, cv=cv)
+            temp1.append(scores_new.mean())
+            temp2.append(scores_prev.mean())
         
-        temp1 = scores.mean()
-        temp2 = scores.std()
-        mean.append(temp1)
-        std.append(temp2)
-    
-    plt.plot(ran, mean, )
+        new.append(sum(temp1)/len(temp1))
+        prev.append(sum(temp2)/len(temp2))
+
+    # print(mean)
+    plt.plot(ran, new, '-g', label='new method')
+    plt.plot(ran, prev, '-b', label='previous method')
+    plt.legend()
+    plt.xlabel("size of dataset")
+    plt.ylabel(str(cv) + "-fold cross validation accuracy")
+    plt.title( name + " Classification")
+    plt.show()
 
 def dataset_test_multivariate():
-    ran = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
+    dataset_test_binary(src='metadata', fn = true_val,cv=2, name='Multivariate')

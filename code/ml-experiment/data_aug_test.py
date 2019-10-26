@@ -30,8 +30,8 @@ def compare(params):
             dim=params.dim,
             walk=params.walk,
             num_walk=params.num_walk,
-            q=params.q + ran_1,
-            p=params.p
+            q=params.q,
+            p=params.p + ran_1
         )
 
         # the number of node distances is 2485 in this dataset
@@ -41,15 +41,13 @@ def compare(params):
         vec3 = g.distance(node_lib)
         vec = [x for x in vec3 if x != 2.0]
         res.append(vec)
-        # print("test")
-        # print(len(vec))
         # 71 nodes
     sns.set(rc={'figure.figsize':(11.7,8.27)})
     print(np.array(res).shape)
     pl = sns.heatmap(np.array(res), yticklabels=np.array(params.q + ran))
     pl.set(xlabel=par.__str__())
     fig = pl.get_figure()
-    fig.savefig(par.__str__() + '.png')
+    fig.savefig( 'q: ' + par.__str__() + '.png')
     fig.clf()
 
 

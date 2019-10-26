@@ -106,7 +106,7 @@ def lib_gen(args, src='data/graphs'):
     return d, node_lib, edge_lib
     
 
-
+# scanns the src and turn them into vectors into final_result.pickle
 def main(args, src='data/graphs'):
     pwd = os.getcwd()
     # default source is in data/graphs

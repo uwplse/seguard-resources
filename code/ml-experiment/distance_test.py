@@ -39,11 +39,11 @@ def read_p():
 def main():
     # arbitrary parameter set
     par = parSet(
-        dim=500,
+        dim=100,
         walk=15,
-        num_walk=5,
+        num_walk=15,
         q=0.25,
-        p=0.5
+        p=3.0
     )
     fabricate()
     to_vector(par)
@@ -53,8 +53,7 @@ def main():
     candidates = [5, 10, 15, 20]
     res = []
     for cand in candidates:
-        print(d['1'])
-        dis = np.linalg.norm(d['1'], d[str(cand)])
+        dis = np.linalg.norm(np.array(d['1']) - np.array(d[str(cand)]))
         res.append(dis)
     with open('distance_test/result.txt', 'w') as filehandle:
         for i in range(len(candidates)):
