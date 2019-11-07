@@ -1,4 +1,7 @@
-Usage: python3 main.py
+This repo is the python implementation of one-hot-encoding + distance vector for 
+Android malware detection. 
+
+To use node2vec to turn dot files into vectors, 
 
 ================================================================
 main.py scans through all the graphs in data/graph, and turns them into

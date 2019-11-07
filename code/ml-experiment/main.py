@@ -119,9 +119,6 @@ def main(args, src='data/graphs'):
         for file in files:
             filename, file_extension = os.path.splitext(root + os.sep + file)
             if file_extension == '.dot':
-            # print("file name: ")
-            # print(file)
-            # print("dict length: " + str(len(d)))
                 g = d[file]
                 vec1 = g.node_one_hot(node_lib)
                 vec2 = g.edge_one_hot(edge_lib)

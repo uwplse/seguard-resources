@@ -17,7 +17,28 @@ from sklearn.metrics import accuracy_score
 # scans through the graphs in data/graphs, and denote their real values
 # filename -> label, then list(label), sort, -> filename -> loc[label]
 
-def true_val(src='data/graphs'):
+
+# merge some labels: warn_trojan, block_trojan, trojan -> trojan
+# returns a dict with filename and appropriate labels.
+def true_val(src='data/graphs', merge=False):
+    merge_map = {'TrojanSMS.Hippo':'sms', 
+                'gooddroid':'benign', 
+                'ExploitLinuxLotoor':'backdoor',
+                'Lotoor':'backdoor',
+                'jssmsers':'sms', 
+                'block_hostile_downloader':'downloader',
+                'warn_phishing':'phishing',
+                'warn_trojan':'trojan',
+                'block_phishing':'phishing',
+                'warn_sms_fraud':'sms', # double check
+                'warn_commercial_spyware':'spyware',
+                'warn_spyware':'spyware',
+                'warn_backdoor':'backdoor',
+                'block_trojan':'trojan',
+                'block_backdoor':'backdoor',
+                'warn_hostile_downloader':'downloader',
+                }
+    omit = {'warn_toll_fraud', 'warn_click_fraud','warn_priviledge_escalation'}
     res = {}
     pwd = os.getcwd()
     # default source is in data/graphs
@@ -27,29 +48,40 @@ def true_val(src='data/graphs'):
         ans = root.split("/")[-1]
         for file in files:
             res.update({file : ans})
-    temp = set(res.values())
-    temp = list(temp)
-    temp.sort()
-    res2 = {i: temp.index(res[i]) for i in list(res.keys())}
-    return res2
-
-#  both vecs and targets are dicts 
-def process_data(vecs, targets):
-    temp = list(targets.keys())
-    temp.sort()
-
-    data = []
-    target = np.array([])
-    for name in temp:
-        temp = np.array(vecs[name])
-        data.append(temp)
-        target = np.concatenate((target, targets[name]), axis=None)
     
-    data = np.array(data)
-    return data, target
+    if merge:
+        merged = {}
+        for key,value in res.items():
+            if value in merge_map.keys():
+                merged.update({key:merge_map[value]})
+            elif value not in omit:
+                merged.update({key:value})
+        return merged
+    else:
+        return res
+
+#  both vecs and targets are dicts {vec: label}
+#  put vecs into matrix form, and target into a list of true values
+def process_data(vec1, targets, vec2=None):
+    label_list = list(set(targets.values()))
+    label_list.sort()
+
+    data_1 = []
+    if vec2!= None:
+        data_2 = []
+    target = []
+    for name in list(targets.keys()):
+        data_1.append(np.array(vec1[name]))
+        if vec2!=None:
+            data_2.append(np.array(vec2[name]))
+        target.append(label_list.index(targets[name]))
+    if vec2!=None:
+        return np.array(data_1), np.array(data_2), np.array(target)
+    else:
+        return np.array(data_1), np.array(target)
 
 
-def evaluate(name,trueval=None):
+def evaluate(name,trueval):
     with open(name, 'rb') as handle:
         vecs = pickle.load(handle)
     X_data, X_true = process_data(vecs, trueval)
@@ -122,8 +154,8 @@ def compare(src='data/graphs'):
         dim=250,
         walk=15,
         num_walk=8,
-        q=0.25,
-        p=4.0
+        p=0.25,
+        q=4
     )
     t = true_val(src=src)
 
@@ -135,45 +167,6 @@ def compare(src='data/graphs'):
     with open('compare_result.txt','w') as handle:
         string = "new_mean: {}, new_std: {}, prev_mean: {}, prev_std: {}".format(new_mean, new_std, prev_mean, prev_std) 
         handle.write(string)
-
-
-def grid_search():
-    t = true_val()
-
-    dimSet = [50, 70, 100, 128, 200, 250, 300, 500]
-    walkSet= [5, 10, 15, 20, 30]
-    num_walkSet = [5, 10, 15, 20, 30]
-    qSet = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
-    pSet = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
-
-
-    df = pd.DataFrame({
-        "dim":[],
-        "walk":[],
-        "num_walk":[],
-        "p":[],
-        "q":[],
-        "score":[],
-        "std":[]
-    })
-
-    for dim in dimSet:
-        for walk in walkSet:
-            for num_walk in num_walkSet:
-                for q in qSet:
-                    for p in pSet:
-                        par = parSet(dim = dim, 
-                                    walk = walk,
-                                    num_walk = num_walk,
-                                    q = q, 
-                                    p = p)
-                        
-                        df2 = test(par, t)
-                        df = df.append(df2, ignore_index=True)
-
-
-    export_csv = df.to_csv('result.csv', sep='\t')
-
 
 def draw(size, lib_new, lib_prev, trueval):
     index = np.random.randint(0, len(lib_new), size=size)
@@ -189,20 +182,9 @@ def reading_lib(file):
         vecs = pickle.load(handle)
     return vecs
 
-def tru_bin(src='data/graphs'):
-    res = {}
-    pwd = os.getcwd()
-    # default source is in data/graphs
-    src = os.path.abspath(os.path.dirname(
-        os.path.dirname(pwd))+os.path.sep+".") + os.path.sep + src
-    for root, dirs, files in os.walk(src):
-        # print("ans:-----------")
-        ans = root.split("/")[-1]
-        # print(ans)
-        # print("files:----------")
-        print(files)
-        for file in files:
-            res.update({file : 1 if ans == 'benign' else 0})
+def tru_bin(src='data/graphs',merge=False):
+    d = true_val(src=src, merge=merge)
+    res = {name:'malware' if label !='benign' else 'benign' for name,label in d.items()}
     return res
 
 # test the accuracy based on the size of the dataset 
@@ -212,29 +194,32 @@ def dataset_test_binary(src='data/graphs', fn=tru_bin, cv=10,name='Binary'):
         dim=250,
         walk=15,
         num_walk=8,
-        q=0.25,
-        p=3.0
+        p= 0.05,
+        q=5.0
     )
     main(par,src='metadata')
     prev_method(src='metadata')
+    t = fn(src='metadata',merge=True)
     lib_prev = reading_lib('final_result_prev.pickle')
     lib_new = reading_lib('final_result.pickle')
-    t = fn(src='metadata')
-    s = t.keys()
+
+    diff = list(set(lib_prev.keys()) - set(t.keys()))
+    for d in diff:
+        del lib_prev[d]
+        del lib_new[d]
     new = []
     prev = []
     for ran_1 in ran:
         temp1 = []
         temp2 = []
-        for ran_2 in range(10):
+        for ran_2 in range(100):
             selected_vecs, selected_prev, selected_tru = draw(size=ran_1, lib_new=lib_new, lib_prev=lib_prev, trueval=t)
-            selected_vecs, selected_tru_w = process_data(selected_vecs, selected_tru)
-            selected_prev, selected_tru = process_data(selected_prev, selected_tru)
+            selected_vecs, selected_prev, selected_tru_w = process_data(selected_vecs, selected_tru, selected_prev)
             clf = RandomForestClassifier(n_estimators=100, max_depth=50, random_state=0)
             scores_new = cross_val_score(clf, selected_vecs, selected_tru_w, cv=cv)
 
             clf_2 = RandomForestClassifier(n_estimators=100, max_depth=50, random_state=0)
-            scores_prev = cross_val_score(clf, selected_prev, selected_tru_w, cv=cv)
+            scores_prev = cross_val_score(clf_2, selected_prev, selected_tru_w, cv=cv)
             temp1.append(scores_new.mean())
             temp2.append(scores_prev.mean())
         
@@ -252,3 +237,28 @@ def dataset_test_binary(src='data/graphs', fn=tru_bin, cv=10,name='Binary'):
 
 def dataset_test_multivariate():
     dataset_test_binary(src='metadata', fn = true_val,cv=2, name='Multivariate')
+
+
+def grid_search():
+    t = true_val(src='metadata',merge=True)
+
+    dimSet = [50, 70, 100, 128, 200, 250, 300, 500]
+    df = pd.DataFrame({
+        "dim":[],
+        "walk":[],
+        "num_walk":[],
+        "p":[],
+        "q":[],
+        "score":[],
+        "std":[]
+    })
+
+    for dim in dimSet:
+        par = parSet(dim = dim, 
+                    walk = 15,
+                    num_walk = 8,
+                    p=0.25, 
+                    q=4.0)
+        df2 = test(par, t)
+        df = df.append(df2, ignore_index=True)
+    export_csv = df.to_csv('result.csv', sep='\t')

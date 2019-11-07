@@ -5,12 +5,15 @@
 # tests 5 parameter sets, for each set, oscilate in a 2 * 2 manner,
 # and outputs 4 heat maps.
 
-
+import os
 import seaborn as sns
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from seguard.common import default_config
 
+from main import node2vec_mapping
+from seguard.graph import Graph
 
 from main import parSet
 from main import lib_gen
@@ -51,14 +54,41 @@ def compare(params):
     fig.clf()
 
 
-data = pd.read_csv('result.csv', sep='\t')
-good_parameters = data[(data['score'] > 0.74) & (data['std'] < 0.2)]
-for index, row in good_parameters.head(n=5).iterrows():
-    par = parSet(
-        dim=row['dim'],
-        walk=row['walk'],
-        num_walk=row['num_walk'],
-        q=row['q'],
-        p=row['p']
-    )
-    compare(par)
+def compare_graph():
+    data = pd.read_csv('result.csv', sep='\t')
+    good_parameters = data[(data['score'] > 0.74) & (data['std'] < 0.2)]
+    for index, row in good_parameters.head(n=5).iterrows():
+        par = parSet(
+            dim=row['dim'],
+            walk=row['walk'],
+            num_walk=row['num_walk'],
+            q=row['q'],
+            p=row['p']
+        )
+        compare(par)
+
+def compare_node_embedding():
+    par = parSet(dim = 25, 
+                    walk = 15,
+                    num_walk = 8,
+                    p=0.25, 
+                    q=4.0)
+    
+    G = Graph(dot_file=root + os.sep + FILE, config=default_config)
+    target = list(G.nodes)[np.random.randint(len(list(G.nodes)))]
+    res = []
+    for ran_1 in range():
+        par = parSet(dim = 25, 
+                    walk = 15,
+                    num_walk = 8,
+                    p=0.25 + ran_1, 
+                    q=4.0)
+        mapping = node2vec_mapping(FILE, G, par)
+        res.append(mapping[target])
+    
+    sns.set()
+    pl = sns.heatmap(np.array(res), yticklabels=np.array(par.p + ran))
+    pl.set(xlabel=par.__str__())
+    fig = pl.get_figure()
+    fig.savefig( 'p: ' + par.__str__() + '.png')
+    fig.clf()
