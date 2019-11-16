@@ -39,11 +39,11 @@ def read_p():
 def main():
     # arbitrary parameter set
     par = parSet(
-        dim=100,
+        dim=25,
         walk=15,
-        num_walk=15,
-        q=0.25,
-        p=3.0
+        num_walk=30,
+        p=5.0,
+        q=0.05
     )
     fabricate()
     to_vector(par)

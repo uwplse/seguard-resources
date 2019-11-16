@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from seguard.common import default_config
-
+from pathlib import Path
 from main import node2vec_mapping
 from seguard.graph import Graph
 
@@ -67,28 +67,52 @@ def compare_graph():
         )
         compare(par)
 
-def compare_node_embedding():
+def compare_node_embedding(vary_q=True):
     par = parSet(dim = 25, 
                     walk = 15,
                     num_walk = 8,
                     p=0.25, 
                     q=4.0)
-    
-    G = Graph(dot_file=root + os.sep + FILE, config=default_config)
+    root = Path(os.getcwd()).parent.parent
+    root = str(root) + os.sep + 'data/graphs/benign/3abfa08b4e1de7195c8e9fe52796a37f9a275cb47f6d0fc904eed172061cd56a.apk.top.dot'
+    G = Graph(dot_file=root, config=default_config)
     target = list(G.nodes)[np.random.randint(len(list(G.nodes)))]
     res = []
-    for ran_1 in range():
-        par = parSet(dim = 25, 
+    for ran_1 in ran:
+
+        if vary_q: 
+            p = par.p
+            q = par.q + ran_1
+        else:
+            p =par.p + ran_1
+            q = par.q
+
+        par_1 = parSet(dim = 25, 
                     walk = 15,
                     num_walk = 8,
-                    p=0.25 + ran_1, 
-                    q=4.0)
-        mapping = node2vec_mapping(FILE, G, par)
+                    p=p, 
+                    q=q)
+        mapping = node2vec_mapping(FILE, G, par_1)
         res.append(mapping[target])
-    
+
     sns.set()
-    pl = sns.heatmap(np.array(res), yticklabels=np.array(par.p + ran))
+    if vary_q:
+        y_label=np.array(par.q + np.array(ran))
+    else:
+        y_label=np.array(par.p + np.array(ran))
+    pl = sns.heatmap(np.array(res),yticklabels=y_label)
     pl.set(xlabel=par.__str__())
+    plt.title('Different node embedding on the same node')
+    if vary_q:
+        plt.ylabel('q')
+    else:
+        plt.ylabel('p')
+
+    plt.xlabel('dimension')
     fig = pl.get_figure()
-    fig.savefig( 'p: ' + par.__str__() + '.png')
+    if vary_q: 
+        fig.savefig( 'q: ' + par.__str__() + '.png')
+    else:
+        fig.savefig( 'p: ' + par.__str__() + '.png')
+
     fig.clf()

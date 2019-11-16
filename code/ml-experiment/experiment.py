@@ -12,6 +12,7 @@ from seguard.graph import Graph
 from seguard.common import default_config
 import seaborn as sns
 import matplotlib.pyplot as plt
+from collections import Counter
 
 from sklearn.metrics import accuracy_score
 # scans through the graphs in data/graphs, and denote their real values
@@ -38,7 +39,7 @@ def true_val(src='data/graphs', merge=False):
                 'block_backdoor':'backdoor',
                 'warn_hostile_downloader':'downloader',
                 }
-    omit = {'warn_toll_fraud', 'warn_click_fraud','warn_priviledge_escalation'}
+    omit = {'warn_toll_fraud', 'warn_click_fraud','warn_privilege_escalation'}
     res = {}
     pwd = os.getcwd()
     # default source is in data/graphs
@@ -92,21 +93,15 @@ def evaluate(name,trueval):
     temp2 = scores.std()
     return temp1, temp2
 
-def test(params, trueval):
-    main(params)
-    mean, std = evaluate('final_result.pickle', trueval)
-    df2 = pd.DataFrame({
-        "dim":[params.dim],
-        "walk":[params.walk],
-        "num_walk":[params.num_walk],
-        "p":[params.p],
-        "q":[params.q],
-        "score":[mean],
-        "std":[std]
-    } 
-    )
-
-    return df2
+def test(params, trueval,src='data/graph'):
+    main(params,src=src)
+    res_m = []
+    res_s = []
+    for i in range(50):
+        mean, std = evaluate('final_result.pickle', trueval)
+        res_m.append(mean)
+        res_s.append(std)
+    return sum(res_m)/len(res_m), sum(res_s)/len(res_s)
 
 # previous method that only uses node-one-hot encoding and edge-one-hot encoding
 def prev_method(src='data/graphs'):
@@ -191,11 +186,11 @@ def tru_bin(src='data/graphs',merge=False):
 def dataset_test_binary(src='data/graphs', fn=tru_bin, cv=10,name='Binary'):
     ran = [50, 100, 150, 200, 250, 314]
     par = parSet(
-        dim=250,
+        dim=25,
         walk=15,
-        num_walk=8,
-        p= 0.05,
-        q=5.0
+        num_walk=30,
+        p=5.0,
+        q=0.05
     )
     main(par,src='metadata')
     prev_method(src='metadata')
@@ -242,23 +237,37 @@ def dataset_test_multivariate():
 def grid_search():
     t = true_val(src='metadata',merge=True)
 
-    dimSet = [50, 70, 100, 128, 200, 250, 300, 500]
-    df = pd.DataFrame({
-        "dim":[],
-        "walk":[],
-        "num_walk":[],
-        "p":[],
-        "q":[],
-        "score":[],
-        "std":[]
-    })
-
+    dimSet = [5, 10, 25, 50, 70, 100, 128, 200, 250, 300, 500]
+    mean = []
+    std = []
     for dim in dimSet:
         par = parSet(dim = dim, 
-                    walk = 15,
-                    num_walk = 8,
-                    p=0.25, 
-                    q=4.0)
-        df2 = test(par, t)
-        df = df.append(df2, ignore_index=True)
-    export_csv = df.to_csv('result.csv', sep='\t')
+                    walk=15,
+                    num_walk=30,
+                    p=5.0,
+                    q=0.05)
+        mean_t, std_t = test(par, t,src="metadata")
+        mean.append(mean_t)
+        std.append(std_t)
+    plt.figure(1)
+    plt.plot(dimSet, mean)
+    plt.xlabel('dimension')
+    plt.ylabel('accuracy')
+    plt.title('dimension vs accuracy')
+    plt.show()
+
+    plt.figure(2)
+    plt.plot(dimSet, std)
+    plt.xlabel('dimension')
+    plt.ylabel('standard deviation of accuracy')
+    plt.title('dimension vs standard deviation of accuracy')
+    plt.show()
+
+    print(mean)
+    print(std)
+
+
+
+def count():
+    t = true_val(src='metadata',merge=True)
+    return dict(Counter(t.values()))
