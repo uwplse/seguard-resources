@@ -3,6 +3,9 @@ Android malware detection.
 
 Note that all the code must be run from the directory seguard_resources/code/ml-experiment
 
+For non mac-os users, generate excutables from https://github.com/snap-stanford/snap/tree/master/examples/node2vec
+and replace the node2vec executable in the repo
+
 To use node2vec to turn dot files into vectors, one should use import main from main.py. 
 main accepts a parameter set as described in the blog post. One can either define
 their own parameter set, which has the following parameter set defined: 

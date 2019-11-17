@@ -34,8 +34,9 @@ The node2vec command/flags should be arguments instead of default
 Note: this is using c++ version instead of python
 '''
 def node2vec_mapping(name, arg, data):
-    l = copy.deepcopy(list(arg.nodes))
-    converted = nx.relabel.convert_node_labels_to_integers(arg.g, first_label = 1)
+    l = copy.deepcopy(arg.nodes)
+    l = sorted(arg.nodes)
+    converted = nx.relabel.convert_node_labels_to_integers(arg.g, first_label = 1,ordering='sorted')
 
     edge_name = "graph/" + name + ".edgelist"
     result_name = "emb/" + name + ".emb"
