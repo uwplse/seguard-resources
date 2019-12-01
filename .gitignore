@@ -23,3 +23,8 @@ code/ml-experiment/__pycache__/augmented_experiment.cpython-37.pyc
 code/ml-experiment/__pycache__/distance_test.cpython-37.pyc
 final_result.pickle
 final_result_prev.pickle
+plan.txt
+code/ml-experiment/emb/*.emb
+code/ml-experiment/graph/*.edgelist
+code/ml-experiment/final_result.pickle
+

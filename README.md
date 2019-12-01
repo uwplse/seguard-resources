@@ -61,6 +61,7 @@ https://github.com/izgzhen/seguard-resources/wiki
 ## Video Tutorials
 
 - [SeGuard error anlaysis](https://vimeo.com/350633606), [transcript](files/transcript/error-analysis-01.txt)
+- [Issue #66 Debug Demo](https://youtu.be/M6AUuDf7Qwg): [link to issue](https://github.com/izgzhen/seguard-framework/issues/66)
 
 ## Live demo (WIP)
 
@@ -68,7 +69,7 @@ http://bit.ly/SeGuardDemo
 
 ## Team
 
-- Lead Developer: [Zhen Zhang](https://homes.cs.washington.edu/~zgzhen/)
-- Contributors: [Luxi Wang](https://github.com/LuxiWang99), [Xiaxuan Gao](https://github.com/MarkGaox), [Andrew Shi](https://github.com/andrewshi98)
+- Lead by [Zhen Zhang](https://homes.cs.washington.edu/~zgzhen/)
+- Contributors: [Luxi Wang](https://github.com/LuxiWang99), [Xiaxuan Gao](https://github.com/MarkGaox), [Andrew Shi](https://github.com/andrewshi98), [Jack Zhang](https://github.com/JackZhangUW), [Lucy (Yanglu) Shu](https://github.com/yanglushu)
 - Advisors: [Yu Feng](https://cs.ucsb.edu/people/faculty/feng), [Mike Ernst](https://homes.cs.washington.edu/~mernst/), [Isil Dillig](https://www.cs.utexas.edu/~isil/)
 - Industry Collaborators: Sebastian (Google), Alec (Google)

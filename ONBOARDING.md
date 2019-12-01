@@ -62,20 +62,12 @@ accordingly with the following code and results:
 (2) featurize the graphs in second dataset and use it for the above classification instead of the
     vectors I showed in dataset 1
 
-## Learning
+## Learning Resources (This repo)
 
 We are trying to maintain a library to needed knowledge and references
 in this repo: https://github.com/izgzhen/seguard-resources.
 They might not be complete, so ask by
 [creating an issue here](https://github.com/izgzhen/seguard-resources/issues) would be helpful!
-
-## Collaboration
-
-* Real-time discussion: If you have an email in `uw.edu,washington.edu,cs.uw.edu,cs.washington.edu`,
-  just sign up at https://seguard.slack.com/signup. If not, ask me (zhen) to invite you.
-* **Your contribution will always be useful to others and appreciated**.
-Whatever it is fixing a typo, adding a utility class, or improving the document like this one,
-feel free to open a pull request.
 
 ## Troubleshooting
 

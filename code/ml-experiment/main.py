@@ -10,7 +10,7 @@ import copy
 from sklearn.feature_extraction import DictVectorizer
 import pickle
 import subprocess
-import time
+
 from tqdm import tqdm
 
 from seguard.graph import Graph
@@ -200,13 +200,15 @@ class parSet:
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Featurelization.")
-    parser.add_argument('--dim', type=int, default=128, help='Number of dimensions. Default is 128.')
-    parser.add_argument('--walk', type=int, default=80, help='Length of walk per source. Default is 80.')
-    parser.add_argument('--num-walk', type=int, default=10, help='Number of walks per source. Default is 10.')
+    parser.add_argument('--dimensions', type=int, default=128, help='Number of dimensions. Default is 128.')
+    parser.add_argument('--walk-length', type=int, default=80, help='Length of walk per source. Default is 80.')
+    parser.add_argument('--num-walks', type=int, default=10, help='Number of walks per source. Default is 10.')
     parser.add_argument('--p', type=float, default=1, help='Return hyperparameter. Default is 1.')
     parser.add_argument('--q', type=float, default=1, help='Inout hyperparameter. Default is 1.')
     return parser.parse_args()
 
+<<<<<<< HEAD
 # if __name__ == "__main__":
 #     args = parse_args()
 #     main(args)
+
