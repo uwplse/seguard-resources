@@ -1,5 +1,6 @@
 .ipynb_checkpoints
 .DS_Store
+.vscode/
 plan.txt
 code/ml-experiment/emb/*.emb
 code/ml-experiment/graph/*.edgelist
@@ -13,6 +14,12 @@ code/ml-experiment/compare_result.txt
 code/ml-experiment/final_result_prev.pickle
 code/ml-experiment/distance_test
 code/ml-experiment/Archive
-
+synthetic_data
 .venv
 .vscode/
+__pychache__/
+code/ml-experiment/__pycache__/adjacent_test.cpython-37.pyc
+code/ml-experiment/__pycache__/augmented_experiment.cpython-37.pyc
+code/ml-experiment/__pycache__/distance_test.cpython-37.pyc
+final_result.pickle
+final_result_prev.pickle

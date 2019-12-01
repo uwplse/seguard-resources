@@ -13,6 +13,12 @@ from seguard.common import default_config
 import seaborn as sns
 import matplotlib.pyplot as plt
 from collections import Counter
+import networkx as nx
+import subprocess
+from main import strToVec
+import seaborn as sns
+
+
 
 from sklearn.metrics import accuracy_score
 # scans through the graphs in data/graphs, and denote their real values
@@ -146,11 +152,11 @@ def prev_method(src='data/graphs'):
 def compare(src='data/graphs'):
     # an arbitrary good parameter set
     par = parSet(
-        dim=250,
+        dim=25,
         walk=15,
-        num_walk=8,
-        p=0.25,
-        q=4
+        num_walk=30,
+        p=0.2,
+        q=0.5
     )
     t = true_val(src=src)
 
@@ -164,6 +170,8 @@ def compare(src='data/graphs'):
         handle.write(string)
 
 def draw(size, lib_new, lib_prev, trueval):
+    # print("test")
+    # print(len(lib_new))
     index = np.random.randint(0, len(lib_new), size=size)
     names = list(lib_new.keys())
     names = [names[i] for i in index.tolist()]
@@ -183,18 +191,17 @@ def tru_bin(src='data/graphs',merge=False):
     return res
 
 # test the accuracy based on the size of the dataset 
-def dataset_test_binary(src='data/graphs', fn=tru_bin, cv=10,name='Binary'):
-    ran = [50, 100, 150, 200, 250, 314]
+def dataset_test_binary(src='metadata', fn=tru_bin, cv=10,name='Binary',ran=[50, 100, 150, 200, 250, 314]):
     par = parSet(
         dim=25,
         walk=15,
         num_walk=30,
-        p=5.0,
-        q=0.05
+        p=0.2,
+        q=0.5
     )
-    main(par,src='metadata')
-    prev_method(src='metadata')
-    t = fn(src='metadata',merge=True)
+    main(par,src=src)
+    prev_method(src=src)
+    t = fn(src=src,merge=False)
     lib_prev = reading_lib('final_result_prev.pickle')
     lib_new = reading_lib('final_result.pickle')
 
@@ -230,22 +237,24 @@ def dataset_test_binary(src='data/graphs', fn=tru_bin, cv=10,name='Binary'):
     plt.title( name + " Classification")
     plt.show()
 
-def dataset_test_multivariate():
-    dataset_test_binary(src='metadata', fn = true_val,cv=2, name='Multivariate')
+def dataset_test_multivariate(src='metadata'):
+    dataset_test_binary(src=src, fn = true_val,cv=2, name='Multivariate')
 
 
 def grid_search():
     t = true_val(src='metadata',merge=True)
 
-    dimSet = [5, 10, 25, 50, 70, 100, 128, 200, 250, 300, 500]
+    dimSet = [5, 10, 25, 50, 70, 100, 128, 200, 250]
     mean = []
     std = []
     for dim in dimSet:
-        par = parSet(dim = dim, 
-                    walk=15,
-                    num_walk=30,
-                    p=5.0,
-                    q=0.05)
+        par = parSet(
+            dim=25,
+            walk=15,
+            num_walk=30,
+            p=0.2,
+            q=0.5
+        )
         mean_t, std_t = test(par, t,src="metadata")
         mean.append(mean_t)
         std.append(std_t)
@@ -271,3 +280,129 @@ def grid_search():
 def count():
     t = true_val(src='metadata',merge=True)
     return dict(Counter(t.values()))
+
+
+def fabricate_distance():
+    G = nx.Graph()
+    G.add_nodes_from(range(21))
+    for i in range(20):
+        G.add_edge(i, i + 1)
+    nx.write_edgelist(G, "distance_test/distance.edgelist", data=False)
+
+
+def to_vector(data, edgelist="distance_test/output_2.edgelist",output="distance_test/final.emb"):
+    command = "./node2vec -i:" + edgelist + " -o:" + output
+    command += ' -d:' + str(data.dim)
+    command += ' -l:' + str(data.walk)
+    command += ' -r:' + str(data.num_walk)
+    command += ' -p:' + str(data.p)
+    command += ' -q:' + str(data.q)
+    subprocess.call(command, shell=True)
+
+def read_p(read_path="distance_test/final.emb"):
+    ans = {}
+    fres = open(read_path, 'r')
+
+    # needs some unit testing on if node2vec does the right thing
+    try:
+       a = fres.readlines()
+       for i in range(len(a)):
+           if i != 0:
+               temp = a[i].split(' ', 1)
+               ans.update({temp[0]: strToVec(temp[1])})
+    finally:
+        fres.close()
+    return ans
+
+def distance_test():
+    par = parSet(
+        dim=250,
+        walk=15,
+        num_walk=100,
+        p=0.5,
+        q=0.8
+    )
+    candidates = [1, 5, 10, 15, 20]
+    distances = np.zeros((50, 5))
+    for i in range(50):
+        fabricate_distance()
+        to_vector(par,edgelist="distance_test/distance.edgelist", output="distance_test/distance.emb")
+        d = read_p(read_path="distance_test/distance.emb")
+
+        for index in range(len(candidates)):
+            dis = np.linalg.norm(np.array(d['0']) - np.array(d[str(candidates[index])]))
+            distances[i][index] = dis
+
+    sns.set()
+    pl = sns.heatmap(np.moveaxis(distances, 0, -1),yticklabels=candidates)
+    plt.title("Distance between loosely conneceted nodes under same setting")
+    plt.ylabel('Distance from node 0')
+    plt.xlabel('trials')
+    fig = pl.get_figure()
+    fig.savefig("distance_test/distance_graph.png")
+    # with open('distance_test/distance_test.txt', 'w') as filehandle:
+    #     for i in range(len(candidates)):
+    #         filehandle.write('%s: %s\n' % (candidates[i], res[i]))
+
+
+def fabricate_adjacent(edgelist="distance_test/adjacent.edgelist"):
+    G = nx.Graph()
+    G.add_nodes_from(range(5))
+    G.add_edge(0,1)
+    G.add_edge(0,2)
+    G.add_edge(0,3)
+    G.add_edge(0,4)
+    nx.write_edgelist(G, edgelist, data=False)
+
+def adjacent_test():
+    # arbitrary parameter set
+    par = parSet(
+        dim=25,
+        walk=15,
+        num_walk=30,
+        p=0.2,
+        q=0.5
+    )
+
+    candidates = [1, 2, 3, 4]
+
+    distances = np.zeros((50,4))
+    for i in range(50):
+        fabricate_adjacent()
+        to_vector(par, edgelist="distance_test/adjacent.edgelist",output="distance_test/adjacent.emb")
+        d = read_p("distance_test/adjacent.emb")
+        for index in range(len(candidates)):
+            distances[i][index] = np.linalg.norm(np.array(d['0']) - np.array(d[str(candidates[index])]))
+    sns.set()
+    pl = sns.heatmap(np.moveaxis(distances, 0, -1),yticklabels=candidates)
+    plt.title("Distance between adjacent nodes under same setting")
+    plt.ylabel('Distance from node 0')
+    plt.xlabel('trials')
+    fig = pl.get_figure()
+    fig.savefig("distance_test/adjacent_graph.png") 
+    
+def adj_distribution():
+    par = parSet(
+        dim=25,
+        walk=15,
+        num_walk=30,
+        p=0.2,
+        q=0.5
+    )
+    res = []
+
+    for i in range(10000):
+        fabricate_adjacent("distance_test/adj_dist.edgelist")
+        to_vector(par, edgelist="distance_test/adj_dist.edgelist",output="distance_test/adj_dist.emb")
+        d = read_p("distance_test/adj_dist.emb")
+        dis = np.linalg.norm(np.array(d['0']) - np.array(d['1']))
+        res.append(dis)
+    print(len(res))
+
+    n, bins, patches = plt.hist(res, 20,facecolor='blue', alpha=0.5)
+    plt.xlabel('distance')
+    plt.ylabel('count')
+    plt.title("adjacent distance distribution")
+    plt.show()
+
+    

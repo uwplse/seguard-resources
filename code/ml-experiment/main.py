@@ -33,24 +33,23 @@ this function should be parametrized: self defined path to node2vec
 The node2vec command/flags should be arguments instead of default
 Note: this is using c++ version instead of python
 '''
-def node2vec_mapping(name, arg, data):
+def node2vec_mapping(name, arg, data, regenerate=False):
     l = copy.deepcopy(arg.nodes)
     l = sorted(arg.nodes)
     converted = nx.relabel.convert_node_labels_to_integers(arg.g, first_label = 1,ordering='sorted')
 
     edge_name = "graph/" + name + ".edgelist"
     result_name = "emb/" + name + ".emb"
-    fh = open(edge_name,'w')
-
-    nx.write_edgelist(converted, edge_name, data=False)
-
-    command = "./node2vec -i:" + edge_name + " -o:" + result_name
-    command += ' -d:' + str(data.dim)
-    command += ' -l:' + str(data.walk)
-    command += ' -r:' + str(data.num_walk)
-    command += ' -p:' + str(data.p)
-    command += ' -q:' + str(data.q)
-    subprocess.call(command, shell=True)
+    if regenerate:
+        nx.write_edgelist(converted, edge_name, data=False)
+        
+        command = "./node2vec -i:" + edge_name + " -o:" + result_name
+        command += ' -d:' + str(data.dim)
+        command += ' -l:' + str(data.walk)
+        command += ' -r:' + str(data.num_walk)
+        command += ' -p:' + str(data.p)
+        command += ' -q:' + str(data.q)
+        subprocess.call(command, shell=True)
 
     # suppose the resulting emb has the same name as the 
     ans = {}
@@ -86,7 +85,6 @@ def lib_gen(args, src='data/graphs'):
     edge_lib = set()
     for root, dirs, files in os.walk(src):
         for file in files:
-            # print("file name: " + str())
             filename, file_extension = os.path.splitext(root + os.sep + file)
             if file_extension == '.dot':
                 G = Graph(dot_file=root + os.sep + file, config=default_config)
@@ -118,6 +116,7 @@ def main(args, src='data/graphs'):
     result = {}
     for root, dirs, files in os.walk(src):
         for file in files:
+            # print(files)
             filename, file_extension = os.path.splitext(root + os.sep + file)
             if file_extension == '.dot':
                 g = d[file]
