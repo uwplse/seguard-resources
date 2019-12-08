@@ -26,6 +26,8 @@ Benign sample is a non-malicious sample. We have a set of benign samples that is
 In this sample, the only suspicious behaviour is a dependency from background activity to SMS related operation.
 However, this is not a strong pattern, thus being classifier as "benign".
 
+APK: https://github.com/examples/benign-1.apk
+
 ## Trojan
 
 ![](images/9164829b1656ce4a530abc59e40cf37b33f7d9af490d334677ca3559f15ea9cd.apk.png)
