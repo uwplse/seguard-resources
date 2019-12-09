@@ -72,12 +72,11 @@ cover dynamically, which potentially indicates the malicious intention of faking
 
 ## SMS Fraud
 
-![](images/5c953957985d3e7fa2b8bb9ec52e018b6ca234065a74413daefab7ad0498d791.apk.png)
-
+![](images/sms-1.png)
 
 *SMS fraud* will charge users to send premium SMS without consent, or tries to disguise its SMS activities by hiding disclosure agreements.
 
-The core behaviour will be sending SMS messages in background ("background -> smsops").
+The core behavior will be sending SMS messages in background ("Run in background -> Text Messaging").
 
 ## Spyware
 
