@@ -26,7 +26,7 @@ Benign sample is a non-malicious sample. We have a set of benign samples that is
 In this sample, the only suspicious behaviour is a dependency from background activity to SMS related operation.
 However, this is not a strong pattern, thus being classifier as "benign".
 
-APK: https://github.com/izgzhen/seguard-framework/blob/master/examples/benign-1.apk
+APK: examples/benign-1.apk
 (Please contact author if you need access to these APKs)
 
 ## Trojan
@@ -39,7 +39,7 @@ In this sample, it needs to launch process (`<java.lang.ProcessBuilder: java.lan
 secretly (i.e. under the context of "background"),
 which is captured by our abstraction.
 
-APK: https://github.com/izgzhen/seguard-framework/blob/master/examples/trojan-1.apk
+APK: examples/trojan-1.apk
 
 
 ## Backdoor
