@@ -31,13 +31,11 @@ APK: examples/benign-1.apk
 
 ## Trojan
 
-![](images/9164829b1656ce4a530abc59e40cf37b33f7d9af490d334677ca3559f15ea9cd.apk.png)
+![](images/trojan-1.pdf)
 
 
 *Trojan* is an application that appears to be benign and performs undesirable actions against the user.
-In this sample, it needs to launch process (`<java.lang.ProcessBuilder: java.lang.Process.start()>`) or invoke shell command (`java.lang.Runtime.exec`)
-secretly (i.e. under the context of "background"),
-which is captured by our abstraction.
+In this sample, we captured the relationship between "Run in background" and "Execute system command/Root privilege escalation"
 
 APK: examples/trojan-1.apk
 
