@@ -31,7 +31,7 @@ APK: examples/benign-1.apk
 
 ## Trojan
 
-![](images/trojan-1.pdf)
+![](images/trojan-1.png)
 
 
 *Trojan* is an application that appears to be benign and performs undesirable actions against the user.
