@@ -42,10 +42,13 @@ APK: `examples/trojan-1.apk`
 
 ## Backdoor
 
-![](images/c80f4ed05c68a51c4c4524b2b94485ebd82d9b9b960976f086c2ae8877082477.apk.png)
+![](images/backdoor-1.png)
 
 Backdoor is an application that allows the execution of unwanted, potentially harmful, remote-controlled operations on a device.
+
 This sample shows the use of API `java.lang.Runtime.exec` to run shell scripts in the background.
+
+APK: `examples/backdoor-1.apk`
 
 ## Hostile downloader
 
