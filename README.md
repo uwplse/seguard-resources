@@ -54,9 +54,10 @@ https://github.com/izgzhen/seguard-resources/wiki
 
 (Edit as will)
 
-## Blog Posts
+## Blog Posts and Write-ups
 
 - 2019-05-29: [Graph Representation in Malware Detection](https://github.com/izgzhen/seguard-resources/blob/master/posts/case-study-01.md)
+- 2020-01-15: [Embedding Semantic Graph using Node Distance for Malware Detection](files/embeddings.pdf)
 
 ## Video Tutorials
 
