@@ -1,3 +1,5 @@
+# outdated
+
 from seguard.common import default_config
 import re
 import networkx as nx
